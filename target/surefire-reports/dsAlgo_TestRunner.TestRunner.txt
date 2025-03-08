@@ -1,0 +1,26 @@
+-------------------------------------------------------------------------------
+Test set: dsAlgo_TestRunner.TestRunner
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 5.685 s <<< FAILURE! - in dsAlgo_TestRunner.TestRunner
+User navigates to login page from landing page(User Gets started from landing page and Logins to DsAlgoPortal)  Time elapsed: 4.821 s  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: 
+The step 'User opens DsAlgo Portal link' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("User opens DsAlgo Portal link")
+public void user_opens_ds_algo_portal_link() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("User enters Valid and Valid")
+public void user_enters_valid_and_valid() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("User is logged in with Pass")
+public void user_is_logged_in_with_pass() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+

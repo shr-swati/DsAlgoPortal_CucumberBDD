@@ -1,0 +1,7 @@
+dsAlgo_StepDefinitions\Hooks.class
+dsAlgo_StepDefinitions\LoginSteps.class
+dsAlgo_utilities\Helper.class
+dsAlgo_PageFactory\LoginPage.class
+dsAlgo_PageFactory\LandingPage.class
+dsAlgo_TestRunner\TestRunner.class
+dsAlgo_utilities\BaseClass.class
