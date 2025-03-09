@@ -34,6 +34,10 @@ public class LinkedListPage {
      public  void clickIntroductionLink() {
     	 introductionLink.click();
      }
+     
+     public void goToLinkedListPage() {
+    	 clickGetStartedButton();
+     }
          
     
      }
