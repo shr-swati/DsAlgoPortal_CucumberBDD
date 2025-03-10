@@ -12,6 +12,8 @@ package dsAlgo_TestRunner;
 	plugin= {"pretty","html:target/cucumber.html","io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
 	         "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
 	        })
+
+	
 	public class TestRunner {
 	 
 	 
