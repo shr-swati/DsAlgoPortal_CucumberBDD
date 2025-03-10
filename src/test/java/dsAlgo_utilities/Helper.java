@@ -1,10 +1,12 @@
 package dsAlgo_utilities;
 
 import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import dsAlgo_PageFactory.LoginPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Helper {
@@ -52,5 +54,16 @@ public class Helper {
      public static String GetPassword() {
       return "password";
      }
-}
-
+     
+     public static void naviageToHomePage() {
+    	 LoginPage loginPage = new LoginPage(Helper.getDriver());
+    	 Helper.openPage("https://dsportalapp.herokuapp.com/");
+    	 loginPage.clickGetStarted();
+    	 loginPage.clickSignIn();
+    	 loginPage.enterUsername("sdet199list");
+ 		 loginPage.enterPassword("Static123@");
+ 		loginPage.clickLogin();
+     }
+	
+		
+	}
