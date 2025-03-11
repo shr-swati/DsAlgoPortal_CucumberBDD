@@ -17,16 +17,19 @@ public class LoginPage {
 	WebElement getTitle;
 
 	@FindBy(name = "username")
-	WebElement username;
+	WebElement userName;
 
 	@FindBy(name = "password")
-	WebElement password;
+	WebElement passWord;
 
 	@FindBy(linkText = "Sign in")
 	WebElement signInLink;
 
 	@FindBy(xpath = "//input[@value='Login']")
 	WebElement loginButton;
+
+	@FindBy(linkText = "Register!")
+	WebElement registerLink;
 
 	@FindBy(xpath = "//div[@role='alert']")
 	WebElement loginAlert;
@@ -45,12 +48,11 @@ public class LoginPage {
 	}
 
 	public void enterUsername(String uName) {
-		// username.clear();
-		username.sendKeys(uName);
+		userName.sendKeys(uName);
 	}
 
 	public void enterPassword(String pwd) {
-		password.sendKeys(pwd);
+		passWord.sendKeys(pwd);
 	}
 
 	public void clickLogin() {

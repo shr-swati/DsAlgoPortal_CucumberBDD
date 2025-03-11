@@ -6,9 +6,9 @@ Feature: User Gets started from landing page and Logins to DsAlgoPortal
     Then User clicks on Get Started button
     Then User should see the page title "NumpyNinja"
     Then User clicks on Signin link
-    Then User enters username as <username> and password as <password>
+    Then User enters username <username> and password <password>
     Then User clicks on login button
-    Then User is logged in with expected status as <status>
+    Then User is logged in with expected status <status>
 
     Examples: 
       | username    | password   | status |
