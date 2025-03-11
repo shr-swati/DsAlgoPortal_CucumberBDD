@@ -18,6 +18,7 @@ public class LoginSteps extends BaseClass {
 	@Given("User Launches Chrome Browser")
 	public void user_launches_chrome_browser() {
 		loginPage = new LoginPage(Helper.getDriver());
+
 	}
 
 	@When("User opens DsAlgo Portal link {string}")
@@ -41,8 +42,8 @@ public class LoginSteps extends BaseClass {
 		loginPage.clickSignIn();
 	}
 
-	@Then("User enters username as sdet199list and password as Static123@")
-	public void user_enters_username_as_sdet199list_and_password_as_static123() {
+	@Then("User enters username sdet199list and password Static123@")
+	public void user_enters_username_and_password() {
 		loginPage.enterUsername("sdet199list");
 		loginPage.enterPassword("Static123@");
 
@@ -53,13 +54,10 @@ public class LoginSteps extends BaseClass {
 		loginPage.clickLogin();
 	}
 
-	@Then("User is logged in with expected status as Pass")
-	public void user_is_logged_in_with_expected_status_as_pass() throws InterruptedException {
-		// if (status.equalsIgnoreCase("Pass")) {
+	@Then("User is logged in with expected status Pass")
+	public void user_is_logged_in_with_expected_status_pass() throws InterruptedException {
 		Assert.assertEquals(loginPage.getAlert(), "You are logged in");
 		System.out.println("Login Successful");
-
-		// }
 
 	}
 
