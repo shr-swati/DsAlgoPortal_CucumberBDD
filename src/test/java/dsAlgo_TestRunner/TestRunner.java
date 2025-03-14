@@ -1,24 +1,30 @@
 package dsAlgo_TestRunner;
 
-	import org.junit.runner.RunWith;
+import org.testng.annotations.DataProvider;
 
-	import io.cucumber.junit.Cucumber;
-	import io.cucumber.junit.CucumberOptions;
-	
-	
-	@RunWith(Cucumber.class)
-	@CucumberOptions(features="src/test/resources/features",glue ="dsAlgo_StepDefinitions"
-	                 ,monochrome=true,
-	plugin= {"pretty","html:target/cucumber.html","io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
-	         "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
-	        })
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.CucumberOptions;
 
-	
-	public class TestRunner {
-	 
-	 
-	}
-	
+@CucumberOptions(
+		
+		features = {"src/test/resources/features"},
+		glue = {"dsAlgo_StepDefinition", "dsAlgo_Hooks"},
+		monochrome=true,
+		plugin = {"pretty", "html:target/cucumber1.html",
+		"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
+		"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
+		"com.aventstack.chaintest.plugins.ChainTestCucumberListener:"}
+)
+
+public class TestRunner extends AbstractTestNGCucumberTests{
+	  
+	@Override
+    @DataProvider(parallel = true)
+    public Object[][] scenarios() {
+				
+		return super.scenarios();
+    }
+}
 	
 
 

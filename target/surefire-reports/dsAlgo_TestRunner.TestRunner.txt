@@ -1,24 +1,360 @@
 -------------------------------------------------------------------------------
 Test set: dsAlgo_TestRunner.TestRunner
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 5.685 s <<< FAILURE! - in dsAlgo_TestRunner.TestRunner
-User navigates to login page from landing page(User Gets started from landing page and Logins to DsAlgoPortal)  Time elapsed: 4.821 s  <<< ERROR!
-io.cucumber.junit.UndefinedStepException: 
-The step 'User opens DsAlgo Portal link' and 2 other step(s) are undefined.
+Tests run: 14, Failures: 14, Errors: 0, Skipped: 0, Time elapsed: 26.525 s <<< FAILURE! - in dsAlgo_TestRunner.TestRunner
+runScenario(dsAlgo_TestRunner.TestRunner)  Time elapsed: 9.571 s  <<< FAILURE!
+io.cucumber.testng.UndefinedStepException: 
+The step 'user is on the Linked List Page' and 2 other step(s) are undefined.
 You can implement these steps using the snippet(s) below:
 
-@Given("User opens DsAlgo Portal link")
-public void user_opens_ds_algo_portal_link() {
+@Given("user is on the Linked List Page")
+public void user_is_on_the_linked_list_page() {
     // Write code here that turns the phrase above into concrete actions
     throw new io.cucumber.java.PendingException();
 }
-@Then("User enters Valid and Valid")
-public void user_enters_valid_and_valid() {
+@When("user clicks on Introduction Link")
+public void user_clicks_on_introduction_link() {
     // Write code here that turns the phrase above into concrete actions
     throw new io.cucumber.java.PendingException();
 }
-@Then("User is logged in with Pass")
-public void user_is_logged_in_with_pass() {
+@Then("user should be redirected to Introduction Page")
+public void user_should_be_redirected_to_introduction_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+runScenario(dsAlgo_TestRunner.TestRunner)  Time elapsed: 0.432 s  <<< FAILURE!
+io.cucumber.testng.UndefinedStepException: 
+The step 'User Launches the Chrome Browser' and 7 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("User Launches the Chrome Browser")
+public void user_launches_the_chrome_browser() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("User opens the DsAlgo Portal link {string}")
+public void user_opens_the_ds_algo_portal_link(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("User clicks on the Get Started button")
+public void user_clicks_on_the_get_started_button() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("User should see page title {string}")
+public void user_should_see_page_title(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("User clicks on Register link")
+public void user_clicks_on_register_link() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("User enters username as register199batch and passwords as Static123 Static123@")
+public void user_enters_username_as_register199batch_and_passwords_as_static123_static123() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("User clicks on Register button")
+public void user_clicks_on_register_button() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("User gets error on page Fail")
+public void user_gets_error_on_page_fail() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+runScenario(dsAlgo_TestRunner.TestRunner)  Time elapsed: 0.68 s  <<< FAILURE!
+io.cucumber.testng.UndefinedStepException: 
+The step 'User is on the Home page of dsalgo portal' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("User is on the Home page of dsalgo portal")
+public void user_is_on_the_home_page_of_dsalgo_portal() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("User clicks on Get Started button under Array section")
+public void user_clicks_on_get_started_button_under_array_section() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("User is navigated to Array page")
+public void user_is_navigated_to_array_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+runScenario(dsAlgo_TestRunner.TestRunner)  Time elapsed: 5.099 s  <<< FAILURE!
+io.cucumber.testng.UndefinedStepException: 
+The step 'The user is on the Home page "https://dsportalapp.herokuapp.com/home"' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("The user is on the Home page {string}")
+public void the_user_is_on_the_home_page(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("The user selects Graph frpm Data Structures")
+public void the_user_selects_graph_frpm_data_structures() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("The user should able to see an warning message {string}")
+public void the_user_should_able_to_see_an_warning_message(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+runScenario(dsAlgo_TestRunner.TestRunner)  Time elapsed: 0.028 s  <<< FAILURE!
+io.cucumber.testng.UndefinedStepException: 
+The step 'User is on the Array Page' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("User is on the Array Page")
+public void user_is_on_the_array_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user clicks on Arrays In Python Link")
+public void user_clicks_on_arrays_in_python_link() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("user should be redirected to Arrays In Python Page")
+public void user_should_be_redirected_to_arrays_in_python_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+runScenario(dsAlgo_TestRunner.TestRunner)  Time elapsed: 0.037 s  <<< FAILURE!
+io.cucumber.testng.UndefinedStepException: 
+The step 'The user is on the Home page' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("The user is on the Home page")
+public void the_user_is_on_the_home_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("The user clicks Get Started buttons of Graph on the homepage without Sign in")
+public void the_user_clicks_get_started_buttons_of_graph_on_the_homepage_without_sign_in() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("The user should able to see an warning message_graph {string}")
+public void the_user_should_able_to_see_an_warning_message_graph(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+runScenario(dsAlgo_TestRunner.TestRunner)  Time elapsed: 0.049 s  <<< FAILURE!
+io.cucumber.testng.UndefinedStepException: 
+The step 'User Launches Chrome Browser' and 7 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("User Launches Chrome Browser")
+public void user_launches_chrome_browser() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("User opens DsAlgo Portal link {string}")
+public void user_opens_ds_algo_portal_link(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("User clicks on Get Started button")
+public void user_clicks_on_get_started_button() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("User should see the page title {string}")
+public void user_should_see_the_page_title(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("User clicks on Signin link")
+public void user_clicks_on_signin_link() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("User enters username sdet199list and password Static123@")
+public void user_enters_username_sdet199list_and_password_static123() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("User clicks on login button")
+public void user_clicks_on_login_button() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("User is logged in with expected status Pass")
+public void user_is_logged_in_with_expected_status_pass() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+runScenario(dsAlgo_TestRunner.TestRunner)  Time elapsed: 0.049 s  <<< FAILURE!
+io.cucumber.testng.UndefinedStepException: 
+The step 'user is on Introduction page' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("user is on Introduction page")
+public void user_is_on_introduction_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user clicks on Try Here Button")
+public void user_clicks_on_try_here_button() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("user is redirected to tryEditor Page")
+public void user_is_redirected_to_try_editor_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+runScenario(dsAlgo_TestRunner.TestRunner)  Time elapsed: 3.131 s  <<< FAILURE!
+io.cucumber.testng.UndefinedStepException: 
+The step 'user is on the DsAlgo Home Page' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("user is on the DsAlgo Home Page")
+public void user_is_on_the_ds_algo_home_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user clicks on Get Started Button under Linked List")
+public void user_clicks_on_get_started_button_under_linked_list() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("user should be able to navigate to Linked List Page")
+public void user_should_be_able_to_navigate_to_linked_list_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+runScenario(dsAlgo_TestRunner.TestRunner)  Time elapsed: 3.156 s  <<< FAILURE!
+io.cucumber.testng.UndefinedStepException: 
+The step 'user is navigate to the tryEditor' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("user is navigate to the tryEditor")
+public void user_is_navigate_to_the_try_editor() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user enter valid pythoncode")
+public void user_enter_valid_pythoncode() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("The user checks output in the console output")
+public void the_user_checks_output_in_the_console_output() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+runScenario(dsAlgo_TestRunner.TestRunner)  Time elapsed: 6.871 s  <<< FAILURE!
+io.cucumber.testng.UndefinedStepException: 
+The step 'The user is on the Home page "https://dsportalapp.herokuapp.com/home"' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("The user is on the Home page {string}")
+public void the_user_is_on_the_home_page(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("The user selects {string} from the drop down without Sign in.")
+public void the_user_selects_from_the_drop_down_without_sign_in(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("The user should able to see an warning message {string}")
+public void the_user_should_able_to_see_an_warning_message(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+runScenario(dsAlgo_TestRunner.TestRunner)  Time elapsed: 7.278 s  <<< FAILURE!
+io.cucumber.testng.UndefinedStepException: 
+The step 'The user is on the Tree page' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("The user is on the Tree page")
+public void the_user_is_on_the_tree_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("The user clicks on the link Overview of Trees  on the Tree page after Sign in")
+public void the_user_clicks_on_the_link_overview_of_trees_on_the_tree_page_after_sign_in() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("The user should able to redirect to the Overview of Trees page")
+public void the_user_should_able_to_redirect_to_the_overview_of_trees_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+runScenario(dsAlgo_TestRunner.TestRunner)  Time elapsed: 7.556 s  <<< FAILURE!
+io.cucumber.testng.UndefinedStepException: 
+The step 'The user is on the Home page "https://dsportalapp.herokuapp.com/home"' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("The user is on the Home page {string}")
+public void the_user_is_on_the_home_page(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("The user clicks Get Started buttons of Tree on the homepage after Sign in with valid {string} and {string}")
+public void the_user_clicks_get_started_buttons_of_tree_on_the_homepage_after_sign_in_with_valid_and(String string, String string2) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("The user should able to redirect to the tree page")
+public void the_user_should_able_to_redirect_to_the_tree_page() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+
+runScenario(dsAlgo_TestRunner.TestRunner)  Time elapsed: 7.57 s  <<< FAILURE!
+io.cucumber.testng.UndefinedStepException: 
+The step 'The user is on the Home page "https://dsportalapp.herokuapp.com/home"' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@Given("The user is on the Home page {string}")
+public void the_user_is_on_the_home_page(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("The user clicks Get Started buttons of Tree on the homepage without Sign in")
+public void the_user_clicks_get_started_buttons_of_tree_on_the_homepage_without_sign_in() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("The user should able to see an warning message {string}")
+public void the_user_should_able_to_see_an_warning_message(String string) {
     // Write code here that turns the phrase above into concrete actions
     throw new io.cucumber.java.PendingException();
 }
