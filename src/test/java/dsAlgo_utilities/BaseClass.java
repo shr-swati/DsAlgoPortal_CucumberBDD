@@ -4,6 +4,7 @@ import dsAlgo_PageFactory.LoginPage;
 
 
 public class BaseClass {
+	
  public LoginPage loginPage;
  
 
