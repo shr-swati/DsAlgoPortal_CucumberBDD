@@ -1,35 +1,41 @@
 package dsAlgo_StepDefinitions;
 
+import static org.testng.Assert.assertEquals;
+
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 import dsAlgo_PageFactory.GraphPage;
+import dsAlgo_PageFactory.HomePage;
 import dsAlgo_PageFactory.LoginPage;
 import dsAlgo_PageFactory.TreePage;
-import dsAlgo_utilities.Helper;
+import dsAlgo_Reader.ExcelReader;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class GraphSteps {
 	WebDriver driver;
-	TreePage treePage;
-	LoginPage loginPage;
-	GraphPage graphPage;
+	TreePage treePage = new TreePage();
+	HomePage homePage = new HomePage();
+	GraphPage graphPage = new GraphPage();
+
+	LoginPage loginPage=new LoginPage();
+	  ExcelReader readExcel = new ExcelReader();
 
 	//Scenario1
 	@When("The user selects Graph frpm Data Structures")
 	public void the_user_selects_graph_frpm_data_structures() {
-		graphPage = new GraphPage(Helper.getDriver());
-
-		graphPage.ClickDS();
-		graphPage.ClickDS_Graph();
+		homePage.dataStructureDropDownClick();
+		homePage.treeBtnClick();
+	
 	}
 	//Scenario2
 	@Given("The user is on the Home page" )
 	public void the_user_is_on_the_home_page() {
-		graphPage = new GraphPage(Helper.getDriver());
-		Helper.openPage("https://dsportalapp.herokuapp.com/home");
+		homePage.launchURL();
+		homePage.getStartedHomeBtnClick();
 	}
 
 	@When("The user clicks Get Started buttons of Graph on the homepage without Sign in")
@@ -41,8 +47,9 @@ public class GraphSteps {
 	@Then("The user should able to see an warning message_graph {string}")
 	public void the_user_should_able_to_see_an_warning_message(String string) throws InterruptedException { 
 			    
-		Assert.assertEquals(graphPage.getmsg(),"You are not logged in");
-		System.out.println("not logged in");
+		loginPage.LoggedMessageSignIn("You are not logged in");
+		String homeText = homePage.getHomeLogMessage(); 
+		assertEquals("You are not logged in", homeText); 
 
 	}
 

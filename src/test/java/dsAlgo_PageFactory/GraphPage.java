@@ -6,9 +6,13 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import dsAlgo_DriverFactory.DriverFactory;
+import dsAlgo_Reader.ConfigReader;
+
 public class GraphPage {
 
-	WebDriver driver;
+	WebDriver driver= DriverFactory.getDriver();
+	ConfigReader configFileReader=DriverFactory.configReader();
  	  
 	  @FindBy(xpath="//a[text()='Data Structures']")
 	  @CacheLookup 
@@ -26,9 +30,8 @@ public class GraphPage {
 	  @CacheLookup
 	  WebElement graph_getStarted_btn;
 	  
-	  public GraphPage(WebDriver driver) {
-	        this.driver = driver;
-	        PageFactory.initElements(driver, this);
+	  public GraphPage() {
+		  PageFactory.initElements(driver, this);
 	        
 	    }
 	    

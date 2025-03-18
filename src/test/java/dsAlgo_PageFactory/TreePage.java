@@ -1,13 +1,27 @@
 package dsAlgo_PageFactory;
 
+import static org.testng.Assert.assertTrue;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.NoAlertPresentException;
+import org.openqa.selenium.UnhandledAlertException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.google.common.collect.Table.Cell;
+import com.microsoft.schemas.office.visio.x2012.main.CellType;
+
+import dsAlgo_DriverFactory.DriverFactory;
+import dsAlgo_Reader.ConfigReader;
+import freemarker.template.utility.DateUtil;
+
 public class TreePage {
-	 WebDriver driver;
+	 
+	 WebDriver driver= DriverFactory.getDriver();
+		ConfigReader configFileReader=DriverFactory.configReader();
 	   	  
 	  @FindBy(xpath="//a[text()='Data Structures']")
 	  @CacheLookup 
@@ -102,16 +116,27 @@ public class TreePage {
 	  
 	  	  
 	  @FindBy(xpath="//a[text()='Try here>>>']")
-	  @CacheLookup
+	  @CacheLookup 
 	  WebElement Try_here; 
 	  
-	  public TreePage(WebDriver driver) {
-	        this.driver = driver;
-	        PageFactory.initElements(driver, this);
+	  @FindBy(xpath="//*[@id='answer_form']/div/div/div[1]/textarea")
+	  @CacheLookup
+	  public WebElement code_txtarea; 
+	  
+	  @FindBy(xpath="//*[@id='answer_form']/button")
+	  @CacheLookup
+	  WebElement Run_btn; 
+	  
+	  @FindBy(xpath="//*[@id=\"output\"]")
+	  @CacheLookup
+	  WebElement run_txtarea;
+
+	   
+	  public TreePage() {
+		PageFactory.initElements(driver, this);
+			}
 	        
-	    }
-	    
-	 
+	    	 
 	  public void ClickDS() {
 		  Data_structure.click();
 		}
@@ -126,8 +151,6 @@ public class TreePage {
 	  }
 	  
 	  public void ClickGetStarted() {
-		  
-		// tree_title.click();
 		  tree_getStarted_btn.click();
 
 		  }
@@ -135,23 +158,7 @@ public class TreePage {
 	  public void ClickSignin() {
 		  signin.click();
 		}
-	  
-	  public void SetUserName(String uName) {
-		  username.clear();
-		  username.sendKeys(uName);
-	  }
-	  
-	   
-	  public void SetPassword(String pwd) {
-		  password.clear();
-		  password.sendKeys(pwd);
-	  }  
-	  
-	  public void ClickBtnLogin() {
-		  login_btn.click();
-		
-	  }
-	 
+		 
 	  public void ClickOverview_of_Trees() {
 		  Overview_of_Trees.click();
 		
@@ -209,7 +216,53 @@ public class TreePage {
 		  Try_here.click();
 		
 	  }
+	  
+	  public String getResultText() {
+	        return run_txtarea.getText();
+	    }
+
+	
+	  public void ClickRun() {
+		  Run_btn.click();
+	  }
+	  public void runButtonWithAlert() {
+		  try {
+				 
+			  Alert alert = driver.switchTo().alert();
+			  String get_alert_msg=alert.getText();
+		        alert.accept();
+		        System.out.println("Alert is:"+get_alert_msg);
+		        
+		  }
+			  catch (NoAlertPresentException e){
+			  System.out.println("No alert present");
+		  }
+		  catch (UnhandledAlertException e){
+			  System.out.println("Unhandled alert exception"+e.getMessage());
+		  }
+		  
+		 
+	  }
+	 
+	  
+	  
+	  public void verifyResult(String expectedResult) {
+		  String actualResult= getResultText();
+	        if (actualResult.equals(expectedResult)) {
+	            System.out.println("Test Passed: The actual result matches the expected result.");
+	        } else {
+	            System.out.println("Test Failed: The actual result does not match the expected result.");
+	            System.out.println("Expected Result: " + expectedResult);
+	            System.out.println("Actual Result: " + actualResult);
+	        }
+	       // assertEquals("The actual result does not match the expected result!", expectedResult, actualResult);
+	        //assertTrue(actualResult.contains(expectedResult);
+	    }
+
 }
+	
+	 
+
 
 
 
