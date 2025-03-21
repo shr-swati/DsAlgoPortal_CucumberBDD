@@ -17,8 +17,8 @@ public class LoginSteps {
 	
 	 HomePage homePage;
 	 LoginPage loginpage;
-	    LoginPage loginPage = new LoginPage();
-	   ExcelReader readExcel = new ExcelReader();
+	 LoginPage loginPage = new LoginPage();
+	 ExcelReader readExcel = new ExcelReader();
 
 		@Given("user is on the DS Algo Sign in Page")
 		public void user_is_on_the_ds_algo_sign_in_page() {
