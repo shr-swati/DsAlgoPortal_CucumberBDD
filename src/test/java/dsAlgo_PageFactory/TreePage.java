@@ -113,7 +113,10 @@ public class TreePage {
 	  @CacheLookup
 	  WebElement Implementation_Of_BST; 
 	  
-	  
+	  @FindBy(xpath="//*[@id=\"content\"]/a")
+	  @CacheLookup
+	  WebElement Practice_Questions; 
+	
 	  	  
 	  @FindBy(xpath="//a[text()='Try here>>>']")
 	  @CacheLookup 
@@ -211,6 +214,9 @@ public class TreePage {
 		  Implementation_Of_BST.click();
 		
 	  }
+	  public void ClickPractice_Questions() {
+		  Practice_Questions.click();
+	  }
 
 	  public void ClickTry_here() {
 		  Try_here.click();
@@ -221,15 +227,18 @@ public class TreePage {
 	        return run_txtarea.getText();
 	    }
 
-	
 	  public void ClickRun() {
 		  Run_btn.click();
 	  }
+	  
+	  
 	  public void runButtonWithAlert() {
+		  
 		  try {
 				 
 			  Alert alert = driver.switchTo().alert();
 			  String get_alert_msg=alert.getText();
+			  System.out.println("value in get_alert_msg Is" + get_alert_msg);
 		        alert.accept();
 		        System.out.println("Alert is:"+get_alert_msg);
 		        
@@ -240,27 +249,53 @@ public class TreePage {
 		  catch (UnhandledAlertException e){
 			  System.out.println("Unhandled alert exception"+e.getMessage());
 		  }
-		  
-		 
+		
 	  }
 	 
-	  
-	  
 	  public void verifyResult(String expectedResult) {
-		  String actualResult= getResultText();
-	        if (actualResult.equals(expectedResult)) {
+		  
+		  String actualResult = getResultText();
+
+		    // Now compare the actual result (from either getResultText or alert) with the expected result
+		    if (actualResult != null && actualResult.equals(expectedResult)) {
+		        System.out.println("Test Passed: The actual result matches the expected result.");
+		    } else {
+		        System.out.println("Test Failed: The actual result does not match the expected result.");
+		        System.out.println("Expected Result: " + expectedResult);
+		        System.out.println("Actual Result: " + actualResult);
+		    }
+		
+		  
+	  }
+	  
+	  public void verifyAlertResult(String expectedResult) {
+		  try
+		  {
+		  Alert alert = driver.switchTo().alert();
+		  String get_alert_msg=alert.getText();
+		  String actualResult= get_alert_msg;
+		  
+		  if (actualResult != null && actualResult.equals(expectedResult)) {
 	            System.out.println("Test Passed: The actual result matches the expected result.");
 	        } else {
 	            System.out.println("Test Failed: The actual result does not match the expected result.");
 	            System.out.println("Expected Result: " + expectedResult);
-	            System.out.println("Actual Result: " + actualResult);
+	           System.out.println("Actual Result: " + actualResult);
 	        }
 	       // assertEquals("The actual result does not match the expected result!", expectedResult, actualResult);
 	        //assertTrue(actualResult.contains(expectedResult);
+		  
+		  }
+	  catch (NoAlertPresentException e) {
+	        System.out.println("Test Failed ,No alert present, The expected alert was not displayed.");
+	        // You can optionally log the expected result here as well
+	        System.out.println("Expected Result: " + expectedResult);
+	    } catch (Exception e) {
+	        System.out.println("An error occurred while handling the alert: " + e.getMessage());
 	    }
-
-}
 	
+}
+}
 	 
 
 
