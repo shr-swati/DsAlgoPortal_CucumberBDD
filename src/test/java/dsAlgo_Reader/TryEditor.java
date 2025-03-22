@@ -35,7 +35,7 @@ public class TryEditor {
 		XSSFSheet sheet = workbook.getSheet(sheetName);
 
 		Row row = sheet.getRow(rowNumber);
-
+		System.out.println("Inside readExcel_forTryHereArray: row.getCell(1).getStringCellValue() " +row.getCell(1).getStringCellValue());
 		String pythoncode = row.getCell(0).getStringCellValue();
 		String output = row.getCell(1).getStringCellValue();
 
