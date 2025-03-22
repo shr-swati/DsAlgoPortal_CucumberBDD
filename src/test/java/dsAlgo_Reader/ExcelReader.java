@@ -46,6 +46,7 @@ public class ExcelReader {
 	        return String.valueOf(cell.getNumericCellValue());
 	    }
 	    if (cell.getCellType() == CellType.STRING) {
+	    	System.out.println("Passed" +cell.getStringCellValue());
 	        return cell.getStringCellValue();
 	    }
 	    return "";
