@@ -32,6 +32,8 @@ Examples:
 | TryEditor    |     5      |
 | TryEditor    |     6      |
 
+
+
 Scenario: Verify that user is able to navigate back to Implementation of Queue in Python  Page 
 Given user is on the tryEditor page for the Implementation of Queue in Python Page 
 When user clicks on browser back button
@@ -39,7 +41,7 @@ When user clicks on browser back button
  
 
  Scenario: verify that user is able to navigate from Implementation of Queue in Python Page to Implementation using collections.deque
- #Given user is on the Implementation of Queue in Python Page
+ 
 When user clicks on Implementation using collections.deque Link
 Then user should be redirected to Implementation using collections.deque Pages
 
@@ -65,13 +67,14 @@ Examples:
 | TryEditor    |     6      |
 
 
+
 Scenario: Verify that user is able to navigate back to Implementation using collections deque  Page 
 Given user is on the tryEditor page for the Implementation using collections deque Page 
  When user clicks on browser back button
  Then user should be able to navigate back to Implementation using collections deque Page
  
  Scenario: verify that user is able to navigate from Implementation using collections deque Page to Implementation using array
-# Given user is on the Implementation using collections deque Page
+
 When user clicks on Implementation using array Link
 Then user should be redirected to Implementation using array Page
 
@@ -95,13 +98,14 @@ Examples:
 | TryEditor    |     5      |
 | TryEditor    |     6      |
 
+
 Scenario: Verify that user is able to navigate back to Implementation using array Page 
 Given user is on the tryEditor page for the Implementation using array Page 
  When user clicks on browser back button
  Then user should be able to navigate back to Implementation using array Page
  
   Scenario: verify that user is able to navigate from Implementation using array Page to Queue Operations
- #Given user is on the Implementation using array Page
+
 When user clicks on Queue Operations Link
 Then user should be redirected to Queue Operations Page
 
@@ -127,14 +131,13 @@ Examples:
 | TryEditor    |     6      |
 
 
-
 Scenario: Verify that user is able to navigate back to Implementation using array Page 
 Given user is on the tryEditor page for the Queue Operations Page 
  When user clicks on browser back button
  Then user should be able to navigate back to Queue Operations Page
 
  Scenario: Verify that user is able to navigate and click on Practice Questions
-# Given user is on the Implementation of Queue in Python Page
+
 Given user is on Queue Operations Page
  When user  clicks on Practice Questions Link for Queue
  Then user should be redirected to Practice Questions Page

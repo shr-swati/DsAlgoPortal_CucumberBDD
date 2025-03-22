@@ -53,8 +53,7 @@ Scenario: Verify that user is able to navigate back to Introduction Page
  
  #7
  Scenario: verify that user is able to navigate from Introduction Page to Creating Linked List page
- #Given user is on the Introduction Page
- When user clicks on Creating Linked List Link
+  When user clicks on Creating Linked List Link
  Then user should be redirected to Creating linked Page
  
  #8
@@ -126,7 +125,7 @@ Scenario: Verify that user is able to navigate back to Types of Linked List Page
  
 ##15
  Scenario: verify that user is able to navigate from  Types of Linked List Page to Implement Linked List in Python Page
- #Given user is on the Types of Linked List page
+
  When user clicks on Implement Linked List in Python Link
  Then user should be redirected to Implement Linked List in Python Page
  
@@ -197,7 +196,7 @@ Examples:
  
 # #23
   Scenario: verify that user is able to navigate from Traversal Page to Insertion Page
- #Given user is on the Traversal Page 
+  
  When user clicks on Insertion Link
  Then user should be redirected to Insertion Page
  
@@ -232,7 +231,7 @@ Examples:
  
 # #27
  Scenario: verify that user is able to navigate from Insertion Page to Deletion Page
- #Given user is on the Insertion Page 
+  
  When user clicks on Deletion Link
  Then user should be redirected to Deletion Page
  

@@ -116,21 +116,10 @@ public class QueuePage {
 		signOut.click();
 	}
 
-	public void runButtonwithAlert() {
-		try {
-			Alert alert = driver.switchTo().alert();
-			String get_alert_msg = alert.getText();
-			alert.accept();
-			System.out.println("Alert is:" + get_alert_msg);
-		} catch (NoAlertPresentException e) {
-			System.out.println("No alert present");
-
-		} catch (UnhandledAlertException e) {
-			System.out.println("Unhandled alert exception" + e.getMessage());
-		}
+	
 		
 	}
-}
+
 		
 
 	

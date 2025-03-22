@@ -56,12 +56,9 @@ public class LinkedListSteps {
 
 	@And("clicks Get Started Button")
 	public void clicks_get_started_button() throws IOException {
-		user_is_on_the_ds_algo_home_page();
-		user_clicks_the_Get_Started_Button();
-		user_clicks_on_signin_link();
-		user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
+		
 		LinkedListPage linkedListPage = new LinkedListPage();
-		linkedListPage.clickGetStartedButton();
+		
 		linkedListPage.goToLinkedListPage();
 	}
 
@@ -143,7 +140,7 @@ public class LinkedListSteps {
 		Assert.assertEquals(tryEditor.getExpectedResult(), alert_box.getText());
 		alert_box.accept();
 		
-		//linkedListPage.runButtonwithAlert();
+		
 	}
 
 
@@ -162,19 +159,8 @@ public class LinkedListSteps {
 		Assert.assertEquals("Introduction", introductionPgTitle);
 //8	    
 	}
-	//@Given("user is on the Introduction Page")
-	//public void user_is_on_the_introduction_page() throws IOException, InterruptedException {
-		//Thread.sleep(2000);
-		//user_is_on_the_ds_algo_home_page();
-		//user_clicks_the_Get_Started_Button();
-		//user_clicks_on_signin_link();
-		//user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
-
-		//linkedListPage = new LinkedListPage();
-		//linkedListPage.goToLinkedListPage();
-		//linkedListPage.clickIntroductionLink();
-		//Thread.sleep(3000);
-	//}
+	
+	
 
 	@When("user clicks on Creating Linked List Link")
 	public void user_clicks_on_creating_linked_list_link() throws IOException, InterruptedException {
@@ -225,7 +211,7 @@ public class LinkedListSteps {
 		Assert.assertEquals(tryEditor.getExpectedResult(), alert_box.getText());
 		alert_box.accept();
 		
-		//linkedListPage.runButtonwithAlert();
+		
 	}
 	//12
 	@Then("user should be able to navigate back to Creating Linked List Page")
@@ -233,18 +219,7 @@ public class LinkedListSteps {
 		String creatingLinkedListPgTitle = DriverFactory.getDriver().getTitle();
 		Assert.assertEquals("Creating Linked LIst", creatingLinkedListPgTitle );
 	}
-	//13
-	//@Given("user is on the Creating Linked List Page")
-	//public void user_is_on_the_creating_linked_list_page() throws IOException {
-		//user_is_on_the_ds_algo_home_page();
-		//user_clicks_the_Get_Started_Button();
-		//user_clicks_on_signin_link();
-		//user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
-
-		//linkedListPage = new LinkedListPage();
-		//linkedListPage.goToLinkedListPage();
-		//linkedListPage.clickCreatingLinkedLIst();
-	//}
+	
 
 	@When("user clicks on Types Of Linked List Link")
 	public void user_clicks_on_types_of_linked_list_link() throws IOException, InterruptedException {
@@ -291,7 +266,7 @@ public void user_should_be_able_to_get_an_error_message_on_try_editor_screen_for
 	LoggerReader.info("Expected message: "+tryEditor.getExpectedResult());
 	Assert.assertEquals(tryEditor.getExpectedResult(), alert_box.getText());
 	alert_box.accept();
-	//linkedListPage.runButtonwithAlert();
+	
 }
 //17
 @Then("user should be able to navigate back to Types Of Linked List page")
@@ -299,18 +274,8 @@ public void user_should_be_able_to_navigate_back_to_types_of_linked_list_page() 
 	String typesOfLinkedListPgTitle = DriverFactory.getDriver().getTitle();
 	Assert.assertEquals("Types of Linked List", typesOfLinkedListPgTitle );
 }
-//18
-@Given("user is on the Types of Linked List page")
-public void user_is_on_the_types_of_linked_list_page() throws IOException {
-	//user_is_on_the_ds_algo_home_page();
-	//user_clicks_the_Get_Started_Button();
-	//user_clicks_on_signin_link();
-	//user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
 
-	//linkedListPage = new LinkedListPage();
-	//linkedListPage.goToLinkedListPage();
-	//linkedListPage.clickTypesOfLinkedList();
-}
+
 
 @When("user clicks on Implement Linked List in Python Link")
 public void user_clicks_on_implement_linked_list_in_python_link() throws IOException, InterruptedException {
@@ -357,7 +322,7 @@ public void user_should_be_able_to_get_an_error_message_on_try_editor_screen_for
 	LoggerReader.info("Expected message: "+tryEditor.getExpectedResult());
 	Assert.assertEquals(tryEditor.getExpectedResult(), alert_box.getText());
 	alert_box.accept();
-	//linkedListPage.runButtonwithAlert();
+	
 }
 
 
@@ -370,18 +335,7 @@ public void user_should_be_able_to_navigate_back_to_implement_linked_list_in_pyt
 
 }
 
-//23
-@Given("user is on the Implement Linked List in Python Page")
-public void user_is_on_the_implement_linked_list_in_python_page() throws IOException {
-	//user_is_on_the_ds_algo_home_page();
-	//user_clicks_the_Get_Started_Button();
-	//user_clicks_on_signin_link();
-	//user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
 
-	//linkedListPage = new LinkedListPage();
-	//linkedListPage.goToLinkedListPage();
-	//linkedListPage.clickImplementLinkedListInPython(); 
-}
 
 @When("user clicks on Traversal Link")
 public void user_clicks_on_traversal_link() throws IOException {
@@ -427,7 +381,7 @@ public void user_should_be_able_to_get_an_error_message_on_try_editor_screen_for
 	LoggerReader.info("Expected message: "+tryEditor.getExpectedResult());
 	Assert.assertEquals(tryEditor.getExpectedResult(), alert_box.getText());
 	alert_box.accept();
-	//linkedListPage.runButtonwithAlert();
+	
 	
     }
 //26
@@ -437,18 +391,7 @@ public void user_should_be_able_to_navigate_back_to_traversal_page() {
 	Assert.assertEquals("Traversal", traversalPage );
 	
 }
-//28
-@Given("user is on the Traversal Page")
-public void user_is_on_the_traversal_page() throws IOException {
-	//user_is_on_the_ds_algo_home_page();
-	//user_clicks_the_Get_Started_Button();
-	//user_clicks_on_signin_link();
-	//user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
 
-	//linkedListPage = new LinkedListPage();
-	//linkedListPage.goToLinkedListPage();
-	//linkedListPage.clickTraversal();
-}
 
 @When("user clicks on Insertion Link")
 public void user_clicks_on_insertion_link() throws IOException {
@@ -494,7 +437,7 @@ public void user_should_be_able_to_get_an_error_message_on_try_editor_screen_for
 	LoggerReader.info("Expected message: "+tryEditor.getExpectedResult());
 	Assert.assertEquals(tryEditor.getExpectedResult(), alert_box.getText());
 	alert_box.accept();
-	//linkedListPage.runButtonwithAlert();
+	
 }
 //32
 @Then("user should be able to navigate back to Insertion Page")
@@ -504,17 +447,7 @@ public void user_should_be_able_to_navigate_back_to_insertion_page() {
 	
     }
 //33
-@Given("user is on the Insertion Page")
-public void user_is_on_the_insertion_page() throws IOException {
-	//user_is_on_the_ds_algo_home_page();
-	//user_clicks_the_Get_Started_Button();
-	//user_clicks_on_signin_link();
-	//user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
 
-	//linkedListPage = new LinkedListPage();
-	//linkedListPage.goToLinkedListPage();
-	//linkedListPage.clickInsertion();
-}
 
 @When("user clicks on Deletion Link")
 public void user_clicks_on_deletion_link() throws IOException {
@@ -562,7 +495,7 @@ public void user_should_be_able_to_get_an_error_message_on_try_editor_screen_for
 	LoggerReader.info("Expected message: "+tryEditor.getExpectedResult());
 	Assert.assertEquals(tryEditor.getExpectedResult(), alert_box.getText());
 	alert_box.accept();
-	//linkedListPage.runButtonwithAlert();
+	
 }
 //37
 @Then("user should be able to navigate back to Deletion Page")

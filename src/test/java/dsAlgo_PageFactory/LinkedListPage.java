@@ -111,18 +111,12 @@ public class LinkedListPage {
     	 try_here_introduction.click();
      }
 
-    // public void textAreaSendKey() {
- 		//System.out.println("inside textAreaSendKey");
- 		//text_area.sendKeys("print(\"hello\"); ");
-    // }
+    
      public void textAreaSendKey(String input) {
   		System.out.println("inside textAreaSendKey");
   		text_area.sendKeys(input);
       }
-    // public void textAreaInValidSendKey() {
-    	// System.out.println("inside textAreaInvalidSendkey");
-    //	text_area.sendKeys("123abcd$");
-    // }
+    
 	public  void runButtonClick() {
 		RunButton.click();
 		
@@ -171,18 +165,7 @@ public class LinkedListPage {
 	 public void clickSignOut() {
 		signOut.click();   
 	}
-	 public void runButtonwithAlert() {
-			try {
-				Alert alert = driver.switchTo().alert();
-				String get_alert_msg = alert.getText();
-				alert.accept();
-				System.out.println("Alert is:" + get_alert_msg);
-			} catch (NoAlertPresentException e) {
-				System.out.println("No alert present");
-
-			} catch (UnhandledAlertException e) {
-				System.out.println("Unhandled alert exception" + e.getMessage());
-			}
+	 
 	
-}
+
 }

@@ -140,14 +140,10 @@ public class QueueSteps {
 		alert_box.accept();
 		Thread.sleep(3000);
 		
-		//queuePage.runButtonwithAlert();
 		
-
-
-
-		    
+	}	    
 	
-	}
+	
 
 	@Then("user should be able to navigate back to Implementation of Queue in Python Page")
 	public void user_should_be_able_to_navigate_back_to_implementation_of_queue_in_python_page() {
@@ -157,18 +153,7 @@ public class QueueSteps {
 		
 	}
 
-	//@Given("user is on the Implementation of Queue in Python Page")
-	//public void user_is_on_the_implementation_of_queue_in_python_page() throws IOException, InterruptedException {
-		//Thread.sleep(2000);
-		//user_is_on_the_ds_algo_home_page();
-		//user_clicks_the_Get_Started_Button();
-		//user_clicks_on_signin_link();
-		//user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
-		//queuePage = new QueuePage();
-		//queuePage.goToQueuePage();
-		//queuePage.clickImplementationOfQueueInPython();
-		//Thread.sleep(2000);
-	//}
+	
 
 	@When("user clicks on Implementation using collections.deque Link")
 	public void user_clicks_on_implementation_using_collections_deque_link() throws InterruptedException, IOException {
@@ -213,7 +198,7 @@ public void user_should_be_able_to_get_an_output_in_the_try_editor_screen_for_th
 }
 @Then("user should be able to get an error message on  tryEditor screen for the Implementation using collections deque page")
 public void user_should_be_able_to_get_an_error_message_on_try_editor_screen_for_the_implementation_using_collections_deque_page() throws InterruptedException {
-   //queuePage.runButtonwithAlert();
+   
 	Thread.sleep(3000);
 	Alert alert_box = DriverFactory.getDriver().switchTo().alert();
 	LoggerReader.info("Alert message: "+alert_box.getText());
@@ -227,17 +212,7 @@ public void user_should_be_able_to_navigate_back_to_implementation_using_collect
 	String implementationUsingCollectionsDequePgTitle = DriverFactory.getDriver().getTitle();
 	Assert.assertEquals("Implementation using collections.deque", implementationUsingCollectionsDequePgTitle);
 }
-//@Given("user is on the Implementation using collections deque Page")
-//public void user_is_on_the_implementation_using_collections_deque_page() throws IOException {
-	//user_is_on_the_ds_algo_home_page();
-	//user_clicks_the_Get_Started_Button();
-	//user_clicks_on_signin_link();
-	//user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
 
-	//queuePage = new QueuePage();
-	//queuePage.goToQueuePage();
-	//queuePage.clickImplementationUsingCollectionsDeque();
-//}
 
 @When("user clicks on Implementation using array Link")
 public void user_clicks_on_implementation_using_array_link() throws IOException {
@@ -291,17 +266,7 @@ public void user_should_be_able_to_navigate_back_to_implementation_using_array_p
 	String implementationUsingArrayPgTitle = DriverFactory.getDriver().getTitle();
 	Assert.assertEquals("Implementation using array", implementationUsingArrayPgTitle); 
 }
-//@Given("user is on the Implementation using array Page")
-//public void user_is_on_the_implementation_using_array_page() throws IOException {
-	//user_is_on_the_ds_algo_home_page();
-	//user_clicks_the_Get_Started_Button();
-	//user_clicks_on_signin_link();
-	//user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
 
-	//queuePage = new QueuePage();
-	//queuePage.goToQueuePage();
-	//queuePage.clickImplementationUsingArray();
-//}
 
 @When("user clicks on Queue Operations Link")
 public void user_clicks_on_queue_operations_link() throws IOException {
@@ -343,7 +308,7 @@ public void user_should_be_able_to_get_an_output_in_the_try_editor_screen_for_th
 
 @Then("user should be able to get an error message on  tryEditor screen for the Queue Operations page")
 public void user_should_be_able_to_get_an_error_message_on_try_editor_screen_for_the_queue_operations_page() throws InterruptedException {
-   // queuePage.runButtonwithAlert();
+   
 	Thread.sleep(3000);
 	Alert alert_box = DriverFactory.getDriver().switchTo().alert();
 	LoggerReader.info("Alert message: "+alert_box.getText());
@@ -372,12 +337,6 @@ queuePage.clickQueueOperations();
 @When("user  clicks on Practice Questions Link for Queue")
 public void user_clicks_on_practice_questions_link_for_queue() throws InterruptedException {
 	
-
-		
-
-		//queuePage.clickImplementationOfQueueInPython();
-		
-		//queuePage= new QueuePage();
 		Thread.sleep(3000);
 		queuePage.clickPracticeQuestions();
 		Thread.sleep(5000);
