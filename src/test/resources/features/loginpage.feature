@@ -12,7 +12,7 @@ Feature: Login Functionality
 
     Examples: 
       | Sheetname   | RowNumber |
-      | Login_Valid |         1 |
+      | Log	in_Valid |         1 |
 
   Scenario Outline: Verify user receives error message when username and password fields are blank during Login
     Given The user clicks the Sign In link
