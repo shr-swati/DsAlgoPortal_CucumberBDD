@@ -15,8 +15,8 @@ import io.cucumber.java.en.When;
 
 public class LoginSteps {
 	
-	 HomePage homePage;
-	 LoginPage loginpage;
+	 HomePage homePage = new HomePage();
+	 //LoginPage loginpage;
 	 LoginPage loginPage = new LoginPage();
 	 ExcelReader readExcel = new ExcelReader();
 
