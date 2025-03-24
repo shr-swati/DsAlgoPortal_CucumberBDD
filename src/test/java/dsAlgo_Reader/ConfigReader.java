@@ -8,6 +8,10 @@ import java.util.Properties;
 
 public class ConfigReader {
 	
+	private static Properties prop = new Properties();
+	private String username;
+	private String password;
+	
 	private static Properties properties;
 	private final static String propertyFilePath = "src/test/resources/Config/config.properties";
 
@@ -44,4 +48,16 @@ public class ConfigReader {
             throw new RuntimeException("Browser not specified in the Configuration.properties file.");
         }
     }
+    
+    public String getusername() throws IOException {
+    	prop.load(ConfigReader.class.getClassLoader().getResourceAsStream("configuration.properties"));
+    	username = prop.getProperty("username");
+    	return username;
+    	}
+    	
+    	public String getpassword() throws IOException {
+    		prop.load(ConfigReader.class.getClassLoader().getResourceAsStream("configuration.properties"));
+    		password = prop.getProperty("password");
+    		return password;
+    		}
 }
