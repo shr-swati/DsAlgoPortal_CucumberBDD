@@ -7,6 +7,7 @@ Feature: Login Functionality
   Scenario Outline: Verify user enters username and password fields
     Given The user clicks the Sign In link
     When The user gets data from excel sheet '<Sheetname>' and <RowNumber> for the login page
+    Then The user is in the Home page after Sign In
     And The user clicks Sign Out
     Then The user should be redirected to home page with message "Logged out successfully"
 
