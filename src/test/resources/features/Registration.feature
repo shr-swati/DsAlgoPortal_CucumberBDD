@@ -64,7 +64,6 @@ Feature: Register Page
       | Sheetname | RowNumber |
       | Register  |        13 |
       | Register  |        14 |
-      
     #Scenario Outline: Verify that the user is able to naviagte to home page with the message
     #Given User is in the Register page to enter username, password and password confirmation
    # When User enters data from excel sheet '<Sheetname>' and <RowNumber> for all the fields and click RegisterButton

@@ -25,12 +25,24 @@ Feature: Testing the Data Structures - Introduction Module in dsAlgo Portal
     When The user clicks the Run button without entering the code in the Editor of Data structures-Introduction
     Then The user should able to see an error message in alert window of Data structures-Introduction
 
-  Scenario: Verify that user receives error for invalid python code to test Data structures-Introduction
+  Scenario Outline: Verify that user receives error for invalid python code to test Data structures-Introduction
     Given The DS-user is in the try Editor page of Data structures-Introduction
-    When The user write the invalid code in Editor and click the Run button to test Data structures-Introduction
+    When The user write the invalid code in Editor '<Sheetname>' <RowNumber> and click the Run button to test Data structures-Introduction
     Then The DS-user should able to see an error message in alert window of Data structures-Introduction
 
-  Scenario: Verify that user is able to see output for valid python code to test Data structures-Introduction
+    Examples: 
+      | Sheetname | RowNumber |
+      | TryEditor |         2 |
+      | TryEditor |         3 |
+      | TryEditor |         4 |
+      | TryEditor |         5 |
+      | TryEditor |         6 |
+
+  Scenario Outline: Verify that user is able to see output for valid python code to test Data structures-Introduction
     Given The user is in the try Editor page of Data structures-Introduction
-    When The user write the valid code in Editor and click the Run button to test Data structures-Introduction
+    When The user write the valid code in Editor '<Sheetname>' <RowNumber> and click the Run button to test Data structures-Introduction
     Then The user should able to see output in the console of Data structures-Introduction
+
+    Examples: 
+      | Sheetname | RowNumber |
+      | TryEditor |         1 |

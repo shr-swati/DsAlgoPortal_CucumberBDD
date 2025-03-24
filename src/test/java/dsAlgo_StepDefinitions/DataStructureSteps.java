@@ -7,6 +7,7 @@ import java.io.IOException;
 import dsAlgo_Reader.ExcelReader;
 import dsAlgo_Reader.ConfigReader;
 import dsAlgo_Reader.LoggerReader;
+import dsAlgo_Reader.TryEditor;
 import dsAlgo_PageFactory.DataStructuresPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -161,10 +162,13 @@ public class DataStructureSteps extends DataStructuresPage {
 		pagetitle = dsp.tryhere();
 	}
 
-	@When("The user write the invalid code in Editor and click the Run button to test Data structures-Introduction")
-	public void the_user_write_the_invalid_code_in_editor_and_click_the_run_button_to_test_data_structures_introduction() {
-
-		dsp.entercode("xyz");
+	@When("The user write the invalid code in Editor {string} {int} and click the Run button to test Data structures-Introduction")
+	public void the_user_write_the_invalid_code_in_editor_and_click_the_run_button_to_test_data_structures_introduction(
+			String sheetName, Integer rowNumber) throws IOException {
+		TryEditor tryEditor = new TryEditor();
+		String[] values = readExcel.excelDataRead(sheetName, rowNumber);
+		dsp.entercode(values[0]);
+		tryEditor.setExpectedResult(values[1]);
 		dsp.clickrun();
 	}
 
@@ -187,10 +191,13 @@ public class DataStructureSteps extends DataStructuresPage {
 		pagetitle = dsp.tryhere();
 	}
 
-	@When("The user write the valid code in Editor and click the Run button to test Data structures-Introduction")
-	public void the_user_write_the_valid_code_in_editor_and_click_the_run_button_to_test_data_structures_introduction() {
-
-		dsp.entercode("print(\"hello\")");
+	@When("The user write the valid code in Editor {string} {int} and click the Run button to test Data structures-Introduction")
+	public void the_user_write_the_valid_code_in_editor_and_click_the_run_button_to_test_data_structures_introduction(
+			String sheetName, Integer rowNumber) throws IOException {
+		TryEditor tryEditor = new TryEditor();
+		String[] values = readExcel.excelDataRead(sheetName, rowNumber);
+		dsp.entercode(values[0]);
+		tryEditor.setExpectedResult(values[1]);
 		dsp.clickrun();
 	}
 
