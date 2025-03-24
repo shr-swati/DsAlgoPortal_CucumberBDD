@@ -51,6 +51,7 @@ public class RegistrationSteps {
 
 	@Then("User should be able to enter username and click Register button")
 	public void user_should_be_able_to_enter_username_and_click_register_button() {
+		Assert.assertTrue(registerPage.isUsernameEnteredCorrectly(), "Username was not entered correctly");
 		registerPage.registerBtnClick();
 	}
 
@@ -66,12 +67,14 @@ public class RegistrationSteps {
 	}
 
 	@Then("User gets error message for username in the Register page")
-	public void user_gets_error_message_for_username_in_the_register_page()
-			throws InterruptedException {
+	public void user_gets_error_message_for_username_in_the_register_page() throws InterruptedException {
 		registerPage.registerBtnClick();
 		String invalidMsg = registerPage.invalidMessageDisplayed();
+		Assert.assertNotNull(invalidMsg, "Error message for username is not displayed");
 		System.out.println(invalidMsg);
 	}
+
+	// Fail
 
 	@When("User enters data from excel sheet {string} and {int} for the password fields")
 	public void user_enters_data_from_excel_sheet_and_for_the_password_fields(String sheetName, int rowNumber)
@@ -84,6 +87,7 @@ public class RegistrationSteps {
 
 	@Then("User should be able to enter password and click Register button")
 	public void user_should_be_able_to_enter_password_and_click_register_button() {
+		Assert.assertTrue(registerPage.isPasswordEnteredCorrectly(), "Password was not entered correctly");
 		registerPage.registerBtnClick();
 	}
 
@@ -104,6 +108,7 @@ public class RegistrationSteps {
 	@Then("User gets an error message for password in the Register page")
 	public void the_user_gets_an_error_message_for_password_in_the_register_page() {
 		String invalidMsg = registerPage.invalidMessageDisplayed();
+		Assert.assertNotNull(invalidMsg, "Error message for password is not displayed");
 		System.out.println(invalidMsg);
 	}
 
@@ -124,32 +129,34 @@ public class RegistrationSteps {
 	@Then("User gets error message in register page")
 	public void user_gets_error_message_in_register_page() {
 		String actualmessage = loginPage.getPopUpMessage();
+		Assert.assertNotNull(actualmessage, "Error message popup is not displayed");
 		System.out.println(actualmessage);
 	}
 
-
-	/*@Given("User is in the Register page to enter username, password and password confirmation")
-	public void user_is_in_the_register_page_to_enter_username_password_and_password_confirmation() {
-		LoggerReader.info("Register button is displayed");
-	}
-
-	@When("User enters data from excel sheet {string} and {int} for all the fields and click RegisterButton")
-	public void user_enters_data_from_excel_sheet_and_for_all_the_fields_and_click_register_button(String sheetName,
-			int rowNumber) throws IOException {
-		registerPage.registerLinkClick();
-		String[] Inputs = readExcel.excelDataRead(sheetName, rowNumber);
-		registerPage.userNameRegisterBtn.clear();
-		registerPage.userNameRegisterBtn.sendKeys(Inputs[0]);
-		registerPage.passwordRegisterBtn.clear();
-		registerPage.passwordRegisterBtn.sendKeys(Inputs[1]);
-		registerPage.passwordConfirmRegisterBtn.clear();
-		registerPage.passwordConfirmRegisterBtn.sendKeys(Inputs[2]);
-		registerPage.registerBtnClick();
-	}
-
-	@Then("User should be able to naviagte to home page and get the success message")
-	public void user_should_be_able_to_naviagte_to_home_page_and_get_the_success_message() {
-		String sucessGetText = registerPage.successMessageDisplayed();
-		System.out.println(sucessGetText);
-	}*/
+	/*
+	 * @Given("User is in the Register page to enter username, password and password confirmation"
+	 * ) public void
+	 * user_is_in_the_register_page_to_enter_username_password_and_password_confirmation
+	 * () { LoggerReader.info("Register button is displayed"); }
+	 * 
+	 * @When("User enters data from excel sheet {string} and {int} for all the fields and click RegisterButton"
+	 * ) public void
+	 * user_enters_data_from_excel_sheet_and_for_all_the_fields_and_click_register_button
+	 * (String sheetName, int rowNumber) throws IOException {
+	 * registerPage.registerLinkClick(); String[] Inputs =
+	 * readExcel.excelDataRead(sheetName, rowNumber);
+	 * registerPage.userNameRegisterBtn.clear();
+	 * registerPage.userNameRegisterBtn.sendKeys(Inputs[0]);
+	 * registerPage.passwordRegisterBtn.clear();
+	 * registerPage.passwordRegisterBtn.sendKeys(Inputs[1]);
+	 * registerPage.passwordConfirmRegisterBtn.clear();
+	 * registerPage.passwordConfirmRegisterBtn.sendKeys(Inputs[2]);
+	 * registerPage.registerBtnClick(); }
+	 * 
+	 * @Then("User should be able to naviagte to home page and get the success message"
+	 * ) public void
+	 * user_should_be_able_to_naviagte_to_home_page_and_get_the_success_message() {
+	 * String sucessGetText = registerPage.successMessageDisplayed();
+	 * System.out.println(sucessGetText); }
+	 */
 }

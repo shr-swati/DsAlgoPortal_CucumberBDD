@@ -45,9 +45,19 @@ package dsAlgo_PageFactory;
 			userNameRegisterBtn.click();
 		}
 		
+		public boolean isUsernameEnteredCorrectly() {
+		  // Example: Check if the username is non-empty and matches a pattern
+		    return userNameRegisterBtn != null && !((CharSequence) userNameRegisterBtn).isEmpty();
+		}
+
 		public void passwordRegisterBtnClick() {
 			passwordRegisterBtn.click();
 		}
+		
+		public boolean isPasswordEnteredCorrectly() {
+			  // Example: Check if the username is non-empty and matches a pattern
+			    return passwordRegisterBtn != null && !((CharSequence) passwordRegisterBtn).isEmpty();
+			}
 		
 		public void passwordConfirmRegisterBtnClick() {
 			passwordConfirmRegisterBtn.click();
