@@ -2,7 +2,7 @@ package dsAlgo_PageFactory;
 
 
 import java.io.IOException;
-
+import static org.testng.Assert.assertTrue;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -13,9 +13,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import dsAlgo_DriverFactory.DriverFactory;
 import dsAlgo_Reader.ExcelReader;
+import dsAlgo_Reader.LoggerReader;
 import dsAlgo_Reader.TryEditor;
 
 
@@ -161,6 +163,9 @@ public class ArrayPage {
 		squareSortedArray.click();
 	}
 	
+	public String getOutput() {
+		return output;
+	}
 	
 public void resultOutput() {
 		
@@ -187,15 +192,23 @@ public void resultOutput() {
 		
 		input = editor[0];
 		output = editor[1];
+		System.out.println("input   :   " +input);
+		System.out.println("output   :   " +output);
+		
 		
 	}
 	
 	public void runButtonWithAlert() {
 		try {
-			Alert alert = driver.switchTo().alert();
-			String get_alert_msg = alert.getText();
-			alert.accept();
-			System.out.println("Alert Is:" + get_alert_msg);
+			
+			Alert alert_box = DriverFactory.getDriver().switchTo().alert();
+			LoggerReader.info("Alert message: "+alert_box.getText());
+			LoggerReader.info("Expected message: "+output);
+			System.out.println("Alert message: " +alert_box.getText());
+			System.out.println("Expected message: " +output);
+			Assert.assertEquals(output, alert_box.getText());
+			alert_box.accept();
+			
 		} catch (NoAlertPresentException e) {
 			System.out.println("No alert present:");
 		} catch (UnhandledAlertException e) {
@@ -204,7 +217,7 @@ public void resultOutput() {
 		}
 	} 
 	
-	public void readExcel_forTryHereArray(String sheetName, int rowNumber) throws IOException, InterruptedException {
+	public void readExcelRun(String sheetName, int rowNumber) throws IOException, InterruptedException {
 
 		try {
 			String[] editor = tryeditor_array.excelTryEditor(sheetName, rowNumber);
@@ -216,6 +229,152 @@ public void resultOutput() {
 			actions.moveToElement(codeMirror).click().perform();
 			WebElement textArea = codeMirror.findElement(By.xpath(".//textarea"));
 			enterCodePractice(editor[0], textArea);
+			
+			//System.out.println("Inside readExcel_forTryHereArray: editor[0] : " +editor[0]);
+			//System.out.println("Inside readExcel_forTryHereArray: editor[1] : " +editor[1]);
+			Run_btn_array.click();
+
+			try {
+				Alert alert = driver.switchTo().alert();
+				String get_alert_msg = alert.getText();
+				alert.accept();
+				System.out.println("Alert Is:" + get_alert_msg);
+				assertTrue(get_alert_msg.contains(output));
+			} catch (NoAlertPresentException e) {
+				System.out.println("No alert present:");
+			} catch (UnhandledAlertException e) {
+
+				System.out.println("Unhandled alert exception: " + e.getMessage());
+			}
+		} finally {
+			System.out.println("ALert handled###");
+		}
+	}
+	
+	
+	
+	
+	public void readExcelSubmit(String sheetName, int rowNumber) throws IOException, InterruptedException {
+
+		try {
+			String[] editor = tryeditor_array.excelTryEditor(sheetName, rowNumber);
+			System.out.println("Inside readExcel_forTryHereArray:");
+			output = editor[1];
+			WebElement codeMirror = driver.findElement(
+					By.xpath("//div[contains(@class, 'CodeMirror') and contains(@class, 'cm-s-default')]"));
+			Actions actions = new Actions(driver);
+			actions.moveToElement(codeMirror).click().perform();
+			WebElement textArea = codeMirror.findElement(By.xpath(".//textarea"));
+			enterCodePractice(editor[0], textArea);
+			
+			System.out.println("Inside readExcelSubmit: editor[0] : " +editor[0]);
+			System.out.println("Inside readExcelSubmit: editor[1] : " +editor[1]);
+			SubmitBtn.click();
+
+			try {
+				Alert alert = driver.switchTo().alert();
+				String get_alert_msg = alert.getText();
+				alert.accept();
+				System.out.println("Alert Is:" + get_alert_msg);
+				assertTrue(get_alert_msg.contains(output));
+			} catch (NoAlertPresentException e) {
+				System.out.println("No alert present:");
+			} catch (UnhandledAlertException e) {
+
+				System.out.println("Unhandled alert exception: " + e.getMessage());
+			}
+		} finally {
+			System.out.println("ALert handled###");
+		}
+	}
+	
+	public void enterCodePractice(String code, WebElement textArea) {
+		new Actions(driver).keyDown(Keys.CONTROL).sendKeys("a").sendKeys(Keys.DELETE).keyUp(Keys.CONTROL).perform();
+		String[] str1 = code.split("\n");
+		System.out.println("inside enterCodePractice");
+		for (int i = 0; i < str1.length; i++) {
+			//System.out.println("inside enterCodePractice if str1[i] " +str1[i]);
+			//System.out.println("inside enterCodePractice if str1[i] " +str1[i].equalsIgnoreCase("\\b"));
+			if (str1[i].equalsIgnoreCase("\\b")) {
+				//System.out.println("inside enterCodePractice if");
+				textArea.sendKeys(Keys.BACK_SPACE);
+			} else {
+				//System.out.println("inside enterCodePractice else");
+				textArea.sendKeys(str1[i]);
+				textArea.sendKeys(Keys.RETURN);
+			}
+		}
+	}
+	
+	public void logResultOutput() {
+		
+			String logResultOutput = result.getText();
+			System.out.println("Assertion Expected : " +output);
+			System.out.println("Assertion Actual : " +logResultOutput);
+			assertTrue(logResultOutput.contains(output));
+	
+	}
+	
+	/*public void logResultOutput() {
+		
+		
+		try {
+			Alert alert = driver.switchTo().alert();
+			String get_alert_msg = alert.getText();
+			System.out.println("logResultOutput() get_alert_msg : " +get_alert_msg);
+			System.out.println("logResultOutput() output : " +output);
+			String logResultOutput = result.getText();
+			if (get_alert_msg == null || get_alert_msg.trim().isEmpty())
+			{
+				if (logResultOutput.equalsIgnoreCase(output)) {	
+			        assertTrue(logResultOutput.contains(output));
+			        System.out.println("Assertion Passed : " +logResultOutput);
+				}
+				else {
+					System.out.println("Assertion Fail : " +logResultOutput);
+				}
+			}
+			
+			else {
+					
+				if (get_alert_msg.equalsIgnoreCase(output)) {	
+				        assertTrue(get_alert_msg.contains(output));
+				        System.out.println("Assertion Passed : " +logResultOutput);
+				}
+				else {
+						System.out.println("Assertion Fail : " +logResultOutput);
+				}
+			
+			}
+			System.out.println("Alert Is:" + get_alert_msg);
+		} catch (NoAlertPresentException e) {
+			System.out.println("No alert present:");
+		} catch (UnhandledAlertException e) {
+
+			System.out.println("Unhandled alert exception: " + e.getMessage());
+		}
+	finally {
+		System.out.println("ALert handled###");
+	}
+		
+		
+	}
+	
+public void readExcel_forTryHereArray(String sheetName, int rowNumber) throws IOException, InterruptedException {
+
+		try {
+			String[] editor = tryeditor_array.excelTryEditor(sheetName, rowNumber);
+			System.out.println("Inside readExcel_forTryHereArray:");
+			output = editor[1];
+			WebElement codeMirror = driver.findElement(
+					By.xpath("//div[contains(@class, 'CodeMirror') and contains(@class, 'cm-s-default')]"));
+			Actions actions = new Actions(driver);
+			actions.moveToElement(codeMirror).click().perform();
+			WebElement textArea = codeMirror.findElement(By.xpath(".//textarea"));
+			enterCodePractice(editor[0], textArea);
+			
+			//System.out.println("Inside readExcel_forTryHereArray: editor[0] : " +editor[0]);
+			//System.out.println("Inside readExcel_forTryHereArray: editor[1] : " +editor[1]);
 			
 			SubmitBtn.click();
 			Run_btn_array.click();
@@ -235,18 +394,10 @@ public void resultOutput() {
 			System.out.println("ALert handled###");
 		}
 	}
+	*/
+
 	
-	public void enterCodePractice(String code, WebElement textArea) {
-		new Actions(driver).keyDown(Keys.CONTROL).sendKeys("a").sendKeys(Keys.DELETE).keyUp(Keys.CONTROL).perform();
-		String[] str1 = code.split("\n");
-		for (int i = 0; i < str1.length; i++) {
-			if (str1[i].equalsIgnoreCase("\\b")) {
-				textArea.sendKeys(Keys.BACK_SPACE);
-			} else {
-				textArea.sendKeys(str1[i]);
-				textArea.sendKeys(Keys.RETURN);
-			}
-		}
-	}
+	
+	
 	
 }

@@ -1,5 +1,7 @@
 package dsAlgo_PageFactory;
 
+import static org.testng.Assert.assertTrue;
+
 import java.io.IOException;
 
 import org.openqa.selenium.Alert;
@@ -12,6 +14,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import dsAlgo_DriverFactory.DriverFactory;
 import dsAlgo_Reader.ExcelReader;
@@ -28,6 +31,12 @@ public class StackPage {
 	public StackPage() {
 		PageFactory.initElements(driver, this);
 	}
+	
+	public String getTitle() {
+	       return driver.getTitle();
+			
+	    }
+
 	
  @FindBy (xpath="//a[@href='stack']") WebElement stackGetStarted;	
  
@@ -54,6 +63,8 @@ public class StackPage {
 @FindBy (xpath="//a[text()='Search the Stack']")WebElement PracticeQuestionsStack;
 
 @FindBy(xpath="//a[normalize-space()='Practice Questions']")WebElement PracticeQuestions;
+
+@FindBy (xpath="//pre[@id='output']") WebElement result;
 	
 public void stackGetStarted() {
 	stackGetStarted.click();
@@ -96,7 +107,7 @@ public boolean OperationsinStacklinkEnabled() {
   public boolean PracticeQuestionsStackDisplayed() {
 		 return PracticeQuestionsStack.isDisplayed();
   }
-  public void tryEditorWindow(String sheetName, int rowNumber) throws IOException, InterruptedException {
+ /* public void tryEditorWindow(String sheetName, int rowNumber) throws IOException, InterruptedException {
 	   String[] editor = readTryEditor.excelTryEditor(sheetName, rowNumber);
 	   Actions actions = new Actions(driver);
 	   actions.moveToElement(codeMirror).click().perform();
@@ -113,5 +124,41 @@ public boolean OperationsinStacklinkEnabled() {
            System.out.println("No alert present: " + e.getMessage());
        }		
      }
+     */
 
+  
+  public void tryEditorWindow(String sheetName, int rowNumber) throws IOException, InterruptedException {
+	   String[] editor = readTryEditor.excelTryEditor(sheetName, rowNumber);
+	   input = editor[0];
+	   output = editor[1];
+	   
+	   Actions actions = new Actions(driver);
+	   actions.moveToElement(codeMirror).click().perform();
+	   WebElement textArea = codeMirror.findElement(By.xpath(".//textarea"));
+	   textArea.sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
+	   textArea.sendKeys(editor[0]);
+	   runButton.click();
+	   
+	   try {
+          Alert alert = driver.switchTo().alert();
+         String get_alert_msg = alert.getText();
+          alert.accept();
+          System.out.println("Alert Is:"+ get_alert_msg);
+          System.out.println("Alert message: " +get_alert_msg);
+			System.out.println("Expected message: " +output);
+          Assert.assertEquals(output, get_alert_msg);
+      } catch (NoAlertPresentException e) {
+          System.out.println("No alert present: " + e.getMessage());
+      }		
+    }
+  
+  public void logResultOutput() {
+		
+		String logResultOutput = result.getText();
+		System.out.println("Assertion Expected  : " +output);
+		System.out.println("Assertion Actual : " +logResultOutput);
+		assertTrue(logResultOutput.contains(output));
+
+}
+  
 }

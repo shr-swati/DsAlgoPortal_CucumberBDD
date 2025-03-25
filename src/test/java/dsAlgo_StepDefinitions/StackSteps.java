@@ -91,6 +91,32 @@ public class StackSteps {
 	@Then("User should be able to navigate to Stack Try Editor page with Run button to test")
 	public void user_should_be_able_to_navigate_to_stack_try_editor_page_with_run_button_to_test() {
 		LoggerReader.info("User at try editor page");
+		String pgTitle = stackPage.getTitle();
+		Assert.assertEquals("Assessment", pgTitle);
+		LoggerReader.info("Page Title : " +pgTitle);
+	}
+	
+	
+	
+	@Given("User at Try Editor page for valid Operations in Stack page")
+	public void user_at_try_editor_page_for_valid_operations_in_stack_page() {
+		stackPage.stackGetStarted();
+		stackPage.operationInStack();
+		stackPage.tryHereBtn() ;
+		LoggerReader.info("Logging : Try Editor page for the Operations in Stack page");
+	}
+
+	@When("User enters valid syntax code from excel sheet {string} and {int} and clicks on Run button")
+	public void user_enters_valid_syntax_code_from_excel_sheet_and_and_clicks_on_run_button(String sheetName, Integer rowNumber) throws IOException, InterruptedException {
+		stackPage.tryEditorWindow(sheetName, rowNumber);
+	}
+
+	@Then("User verify output in the valid Try Editor screen for the Operations in Stack page")
+	public void user_verify_output_in_the_valid_try_editor_screen_for_the_operations_in_stack_page() {
+		stackPage.logResultOutput();
+		String pgTitle = stackPage.getTitle();
+		Assert.assertEquals("Assessment", pgTitle);
+		LoggerReader.info("Page Title : " +pgTitle);
 	}
 	
 	@Given("User at Try Editor page for the Operations in Stack page")
@@ -102,20 +128,45 @@ public class StackSteps {
 
 	}
 
-	@When("User enters valid, invalid and incorrect syntax code from excel sheet {string} and {int} and clicks on Run button")
-	public void user_enters_valid_invalid_and_incorrect_syntax_code_from_excel_sheet_and_and_clicks_on_run_button(String sheetName, Integer rowNumber) throws IOException, InterruptedException {
+	@When("User enters invalid and incorrect syntax code from excel sheet {string} and {int} and clicks on Run button")
+	public void user_enters_invalid_and_incorrect_syntax_code_from_excel_sheet_and_and_clicks_on_run_button(String sheetName, Integer rowNumber) throws IOException, InterruptedException {
 		stackPage.tryEditorWindow(sheetName, rowNumber);
 	}
 
 	@Then("User verify output in the Try Editor screen for the Operations in Stack page")
 	public void user_verify_output_in_the_try_editor_screen_for_the_operations_in_stack_page() {
 		LoggerReader.info("Logging ::::::user verify the output - Try Editor screen for the Operations in Stack page");
+		//stackPage.logResultOutput();
+		String pgTitle = stackPage.getTitle();
+		Assert.assertEquals("Assessment", pgTitle);
+		LoggerReader.info("Page Title : " +pgTitle);
 	}
     
+	@Given("User at Try Editor page for the Implementation page valid")
+	public void user_at_try_editor_page_for_the_implementation_page_valid() {
+		stackPage.stackGetStarted();
+		stackPage.Implementation();
+		stackPage.tryHereBtn();
+		LoggerReader.info("Logging : Try Editor page for the Implementation page");
+	}
+
+	@When("User enters valid code from excel sheet {string} and {int} and clicks on Run button for Implementation page")
+	public void user_enters_valid_code_from_excel_sheet_and_and_clicks_on_run_button_for_implementation_page(String sheetName, Integer rowNumber) throws IOException, InterruptedException {
+		stackPage.tryEditorWindow(sheetName, rowNumber);
+	}
+
+	@Then("User verify output in the Try Editor screen for the Implementation page valid")
+	public void user_verify_output_in_the_try_editor_screen_for_the_implementation_page_valid() {
+		stackPage.logResultOutput();
+		String pgTitle = stackPage.getTitle();
+		Assert.assertEquals("Assessment", pgTitle);
+		LoggerReader.info("Page Title : " +pgTitle);
+	}
+	
 	@Given("User at Try Editor page for the Implementation page")
 	public void user_at_try_editor_page_for_the_implementation_page() {
 		stackPage.stackGetStarted();
-		stackPage. Implementation();
+		stackPage.Implementation();
 		stackPage.tryHereBtn();
 		LoggerReader.info("Logging : Try Editor page for the Implementation page");
 	}
@@ -128,7 +179,33 @@ public class StackSteps {
 	@Then("User verify output in the Try Editor screen for the Implementation page")
 	public void user_verify_output_in_the_try_editor_screen_for_the_implementation_page() {
 		LoggerReader.info("Logging ::::::user verify the output - Try Editor screen for the Implementation page");
+		String pgTitle = stackPage.getTitle();
+		Assert.assertEquals("Assessment", pgTitle);
+		LoggerReader.info("Page Title : " +pgTitle);
 	}
+	
+	
+	@Given("User at Try Editor page for the Applications page valid")
+	public void user_at_try_editor_page_for_the_applications_page_valid() {
+		stackPage.stackGetStarted();
+		stackPage.Applications();
+		stackPage.tryHereBtn();
+		LoggerReader.info("Logging : Try Editor page for the Applications page");
+	}
+
+	@When("User enters valid code from excel sheet {string} and {int} and clicks on Run button for Applications page")
+	public void user_enters_valid_code_from_excel_sheet_and_and_clicks_on_run_button_for_applications_page(String sheetName, Integer rowNumber) throws IOException, InterruptedException {
+		stackPage.tryEditorWindow(sheetName, rowNumber);
+	}
+
+	@Then("User verify output in the Try Editor screen for the Applications page valid")
+	public void user_verify_output_in_the_try_editor_screen_for_the_applications_page_valid() {
+		stackPage.logResultOutput();
+		String pgTitle = stackPage.getTitle();
+		Assert.assertEquals("Assessment", pgTitle);
+		LoggerReader.info("Page Title : " +pgTitle);
+	}
+
 	
 	@Given("User at Try Editor page for the Applications page")
 	public void user_at_try_editor_page_for_the_applications_page() {
@@ -146,6 +223,9 @@ public class StackSteps {
 	@Then("User verify output in the Try Editor screen for the Applications page")
 	public void user_verify_output_in_the_try_editor_screen_for_the_applications_page() {
 		LoggerReader.info("Logging ::::::user verify the output - Try Editor screen for the Applications page");
+		String pgTitle = stackPage.getTitle();
+		Assert.assertEquals("Assessment", pgTitle);
+		LoggerReader.info("Page Title : " +pgTitle);
 	}
 	@Given("User is at the Operations in Stack page")
 	public void user_is_at_the_operations_in_stack_page() {
@@ -163,6 +243,6 @@ public class StackSteps {
 
 	@Then("User should be redirected to Practice page")
 	public void user_should_be_redirected_to_practice_page() {
-		LoggerReader.info("Logging ::::::User should be redirected to Practice page"); 
+		LoggerReader.info("Logging ::::::: User should be redirected to Practice page"); 
 	}
 }
