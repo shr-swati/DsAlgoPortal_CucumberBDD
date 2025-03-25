@@ -2,7 +2,7 @@ Feature: Graph
 
 #Scenario1
  Scenario: Verify that user able to see warning message while selecting Graph from the dropdown Data Structures without Sign in
-  Given The user is on the Home page "https://dsportalapp.herokuapp.com/home"
+  Given The user is on the Home page
   When The user selects Graph frpm Data Structures
   Then The user should able to see an warning message "You are not logged in"
 
@@ -14,7 +14,7 @@ Feature: Graph
   
   #Scenario3
    Scenario Outline: Verify that user is able to click on graphs Get started button of Graph on the home page after giving valid username and password
-     Given The user is on the Home page "https://dsportalapp.herokuapp.com/home"
+     Given The user is on the Home page
      When The user gets data from excel sheet '<Sheetname>' and <RowNumber> for the login page and clicks Graphs Get Started button
      Then The user should able to redirect to the Graph page
      
@@ -105,15 +105,11 @@ Feature: Graph
    Then The user should be able to navigate to the previous page from the try here page ie, Graph Representations page
    
    #Practice Questions
-   Scenario: Verify that user is able to click on the link Practice Questions from the Graph page  
+   Scenario: Verify that user is view the page content in Practice Questions while clicking the link practice questions
    Given The user is on the Graph page
    When The user clicks on the link Practice Questions on the Graph page 
    Then The user should redirect to the Practice Questions page 
    
-   Scenario: Verify that user is able to view content in the Practice question page  
-   Given The user is on the Graph page
-   When The user clicks on the link Practice Questions on the Graph page 
-   Then The user should able to view the content in Practice Questions page 
-   
+  
    
    

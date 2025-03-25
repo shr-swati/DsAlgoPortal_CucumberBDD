@@ -38,8 +38,8 @@ public class TreeSteps {
 	
 	
 	//Scenario1 
-	@Given("The user is on the Home page {string}")
-	public void the_user_is_on_the_home_page(String url) {
+	@Given("The user is on the Home page")
+	public void the_user_is_on_the_home_page() {
 		
 		homePage.launchURL();
 		homePage.getStartedHomeBtnClick();
@@ -84,7 +84,6 @@ public class TreeSteps {
 	@Then("The user should able to redirect to the tree page")
 public void the_user_should_able_to_redirect_to_the_tree_page() {
 		
-		
 		String TreePgTitle = DriverFactory.getDriver().getTitle();
 		 Assert.assertEquals("Tree", TreePgTitle);
 	
@@ -93,7 +92,7 @@ public void the_user_should_able_to_redirect_to_the_tree_page() {
 	
 	@Given("The user is on the Tree page")
 	public void the_user_is_on_the_tree_page() throws IOException {
-		the_user_is_on_the_home_page("https://dsportalapp.herokuapp.com");
+		the_user_is_on_the_home_page();
 		homePage.getStartedHomeBtnClick();
 		String sheetName = "Valid_Login"; // Define the sheet name
 		Integer rowNumber = 1; // Define the row number
@@ -108,9 +107,10 @@ public void the_user_should_able_to_redirect_to_the_tree_page() {
 
 	@Then("The user should able to redirect to the Overview of Trees page")
 	public void the_user_should_able_to_redirect_to_the_overview_of_trees_page() {
-		
-		String Overview_of_TreesPgTitle = DriverFactory.getDriver().getTitle();
-		 Assert.assertEquals("Overview of Trees", Overview_of_TreesPgTitle);
+		Assert.assertEquals(treePage.PgTitleDiaplayed(), true);
+
+		//String Overview_of_TreesPgTitle = DriverFactory.getDriver().getTitle();
+		// Assert.assertEquals("Overview of Trees", Overview_of_TreesPgTitle);
 	
 	}
 	//Scenario5
@@ -128,7 +128,7 @@ public void the_user_should_able_to_redirect_to_the_tree_page() {
 
 		@Then("The user should able to redirect to a new page with text area for trying the code")
 		public void the_user_should_able_to_redirect_to_a_new_page_with_text_area_for_trying_the_code() {
-		    //no title for the page
+			Assert.assertEquals(treePage.Run_btnDisplayed(), true);
 		}
 
 	//Scenario6,7
@@ -144,52 +144,21 @@ public void the_user_should_able_to_redirect_to_the_tree_page() {
 			 //driver = new ChromeDriver();
 			String[] credentials = tryeditor.excelTryEditor(sheetName, rowNumber);
 			treePage.code_txtarea.sendKeys(credentials[0]);
-	        treePage.ClickRun();
-
-
-	//check code to fix indentation	
-			 // Ensure that the code is not null or empty
-//		    if (credentials != null && credentials.length > 0 && credentials[0] != null && !credentials[0].isEmpty()) {
-//
-//		        // Clear the text area before entering code
-//		        new Actions(driver)
-//		            .keyDown(Keys.CONTROL)  // For Windows, use CONTROL, for Mac use COMMAND
-//		            .sendKeys("a")          // Select all text in the text area
-//		            .sendKeys(Keys.DELETE)  // Delete the selected text
-//		            .keyUp(Keys.CONTROL)    // Release the CONTROL key
-//		            .perform();
-//
-//		        // Process the python code
-//		        String code = credentials[0];
-//		      
-//		        // Loop through the code and send it to the text area
-//		        for (int i = 0; i < code.length(); i++) {
-//		            char currentChar = code.charAt(i);
-//
-//		            if (currentChar == '\b') {  // Check if the character is a backspace
-//		                treePage.code_txtarea.sendKeys(Keys.BACK_SPACE);  // Send backspace key
-//		            } else {
-//		                treePage.code_txtarea.sendKeys(String.valueOf(currentChar));  // Send current character
-//		               // treePage.code_txtarea.sendKeys(Keys.RETURN);  // Press Enter after each character (if needed)
-//		            }
-//		        }
-//
-//		        // Wait for a few seconds (you can adjust this or remove it)
-		      
-
-		        // Click the Run button to execute the code
-		    
+	        treePage.ClickRun();	    
 		}
-
-		
+	
 
 		@Then("The user should able to get the result from excel sheet {string} and {int}")
 		public void the_user_should_able_to_get_the_result_from_excel_sheet(String sheetName, Integer rowNumber) throws IOException {
 		
 			String expectedResult = tryeditor.excelTryEditor(sheetName, rowNumber)[1]; 
-		    treePage.verifyResult(expectedResult); // Calling the verify method from the page object
-			
-				
+		   
+			 String actualResult = treePage.getResultText();
+		   
+		   
+		    Assert.assertEquals(actualResult, expectedResult);
+		    System.out.println("Expected Result: " + expectedResult);
+		    System.out.println("Actual Result: " + actualResult);	
 		}
 		
 		//Scenario8.9.10.11.12
@@ -204,12 +173,15 @@ public void the_user_should_able_to_redirect_to_the_tree_page() {
 		@Then("The user should be able to receive an alert message from excel sheet {string} and {int}")
 		public void the_user_should_be_able_to_receive_an_alert_message_from_excel_sheet_and(String sheetName, Integer rowNumber) throws IOException{
 			
-			 treePage.runButtonWithAlert();
+			 String actualResult = treePage.runButtonWithAlert();
 			 String expectedResult = tryeditor.excelTryEditor(sheetName, rowNumber)[1]; 
 			    treePage.ClickRun();
 
-			    treePage.verifyAlertResult(expectedResult); // Calling the verify method from the page object
+			  //  treePage.verifyAlertResult(expectedResult); // Calling the verify method from the page object
 
+			    Assert.assertEquals(actualResult, expectedResult);
+			    System.out.println("Expected Result: " + expectedResult);
+			    System.out.println("Actual Result: " + actualResult);
 }
 		//Scenario 13
 		
@@ -221,8 +193,10 @@ public void the_user_should_able_to_redirect_to_the_tree_page() {
 
 		@Then("The user should be able to navigate to the previous page from the try here page ie, Overview of Trees page")
 		public void the_user_should_be_able_to_navigate_to_the_previous_page_from_the_try_here_page_ie_overview_of_trees_page() {
-			String Overview_of_TreesPgTitle = DriverFactory.getDriver().getTitle();
-			 Assert.assertEquals("Overview of Trees", Overview_of_TreesPgTitle);
+			Assert.assertEquals(treePage.PgTitleDiaplayed(), true);
+
+			//String Overview_of_TreesPgTitle = DriverFactory.getDriver().getTitle();
+			// Assert.assertEquals("Overview of Trees", Overview_of_TreesPgTitle);
 		}
 
 
@@ -237,8 +211,8 @@ public void the_user_should_able_to_redirect_to_the_tree_page() {
 
 		@Then("The user should able to redirect to the Terminologies page")
 		public void the_user_should_able_to_redirect_to_the_terminologies_page() {
-			String TerminologiesPgTitle = DriverFactory.getDriver().getTitle();
-			 Assert.assertEquals("Terminologies", TerminologiesPgTitle); 
+			Assert.assertEquals(treePage.PgTitleDiaplayed(), true);
+
 		}
 //Scenario 15
 		@Given("The user is on the Terminologies page")
@@ -274,8 +248,8 @@ public void the_user_should_able_to_redirect_to_the_tree_page() {
 
 		@Then("The user should redirect to the Types of Trees page")
 		public void the_user_should_redirect_to_the_types_of_trees_page() {
-			String Types_of_Trees = DriverFactory.getDriver().getTitle();
-			 Assert.assertEquals("Types of Trees", Types_of_Trees); 
+			Assert.assertEquals(treePage.PgTitleDiaplayed(), true);
+
 		}
 //scenario 25
 		@Given("The user is on the Types of Trees page")
@@ -300,9 +274,7 @@ public void the_user_should_able_to_redirect_to_the_tree_page() {
 			the_user_should_redirect_to_the_types_of_trees_page();
 		}
 
-//new scnarios
-		
-		//Scenario 34
+//Scenario 34
 @When("The user clicks on the link Tree Traversals on the Tree page")
 public void the_user_clicks_on_the_link_tree_traversals_on_the_tree_page() {
 	treePage.ClickTree_Traversals();
@@ -310,8 +282,8 @@ public void the_user_clicks_on_the_link_tree_traversals_on_the_tree_page() {
 
 @Then("The user should redirect to the Tree Traversals page")
 public void the_user_should_redirect_to_the_tree_traversals_page() {
-	String Tree_Traversals = DriverFactory.getDriver().getTitle();
-	 Assert.assertEquals("Tree Traversals", Tree_Traversals);
+	Assert.assertEquals(treePage.PgTitleDiaplayed(), true);
+
 }
 //Scenario 35
 
@@ -344,8 +316,8 @@ public void the_user_clicks_on_the_link_traversals_illustration_on_the_tree_page
 
 @Then("The user should redirect to the Traversals-Illustration page")
 public void the_user_should_redirect_to_the_traversals_illustration_page() {
-	String Traversals_Illustration = DriverFactory.getDriver().getTitle();
-	 Assert.assertEquals("Traversals-Illustration", Traversals_Illustration);
+	Assert.assertEquals(treePage.PgTitleDiaplayed(), true);
+
 }
 
 @Given("The user is on the Traversals-Illustration page")
@@ -378,8 +350,8 @@ public void the_user_clicks_on_the_link_binary_trees_on_the_tree_page() {
 
 @Then("The user should redirect to the Binary Trees page")
 public void the_user_should_redirect_to_the_binary_trees_page() {
-	String Binary_Trees = DriverFactory.getDriver().getTitle();
-	 Assert.assertEquals("Binary Trees", Binary_Trees);
+	Assert.assertEquals(treePage.PgTitleDiaplayed(), true);
+
 }
 
 @Given("The user is on the Binary Trees page")
@@ -411,8 +383,8 @@ public void the_user_clicks_on_the_link_types_of_binary_trees_on_the_tree_page()
 
 @Then("The user should redirect to the Types of Binary Trees page")
 public void the_user_should_redirect_to_the_types_of_binary_trees_page() {
-	String Types_of_Binary_Trees = DriverFactory.getDriver().getTitle();
-	 Assert.assertEquals("Types of Binary Trees", Types_of_Binary_Trees);
+	Assert.assertEquals(treePage.PgTitleDiaplayed(), true);
+
 }
 
 @Given("The user is on the Types of Binary Trees page")
@@ -444,8 +416,8 @@ public void the_user_clicks_on_the_link_implementation_in_python_on_the_tree_pag
 
 @Then("The user should redirect to the Implementation in Python page")
 public void the_user_should_redirect_to_the_implementation_in_python_page() {
-	String Implementation_in_Python = DriverFactory.getDriver().getTitle();
-	 Assert.assertEquals("Implementation in Python", Implementation_in_Python);
+	Assert.assertEquals(treePage.PgTitleDiaplayed(), true);
+
 }
 
 @Given("The user is on the Implementation in Python page")
@@ -469,8 +441,6 @@ public void the_user_is_on_the_try_here_textarea_of_implementation_in_python_pag
 public void the_user_should_be_able_to_navigate_to_the_previous_page_from_the_try_here_page_ie_implementation_in_python_page() {
 	the_user_should_redirect_to_the_implementation_in_python_page();
 }
-///Undefined scenarios	///
-///
 
 @When("The user clicks on the link Binary Tree Traversals on the Tree page")
 public void the_user_clicks_on_the_link_binary_tree_traversals_on_the_tree_page() {
@@ -479,8 +449,8 @@ public void the_user_clicks_on_the_link_binary_tree_traversals_on_the_tree_page(
 
 @Then("The user should redirect to the Binary Tree Traversals page")
 public void the_user_should_redirect_to_the_binary_tree_traversals_page() {
-	String Binary_Tree_Traversals = DriverFactory.getDriver().getTitle();
-	 Assert.assertEquals("Binary Tree Traversals", Binary_Tree_Traversals);
+	Assert.assertEquals(treePage.PgTitleDiaplayed(), true);
+
 }
 
 @Given("The user is on the Binary Tree Traversals page")
@@ -512,8 +482,8 @@ public void the_user_clicks_on_the_link_implementation_of_binary_trees_on_the_tr
 
 @Then("The user should redirect to the Implementation of Binary Trees page")
 public void the_user_should_redirect_to_the_implementation_of_binary_trees_page() {
-	String Implementation_of_Binary_Trees = DriverFactory.getDriver().getTitle();
-	 Assert.assertEquals("Implementation of Binary Trees", Implementation_of_Binary_Trees);
+	Assert.assertEquals(treePage.PgTitleDiaplayed(), true);
+
 }
 
 @Given("The user is on the Implementation of Binary Trees page")
@@ -545,8 +515,8 @@ public void the_user_clicks_on_the_link_applications_of_binary_trees_on_the_tree
 
 @Then("The user should redirect to the Applications of Binary trees page")
 public void the_user_should_redirect_to_the_applications_of_binary_trees_page() {
-	String Applications_of_Binary_trees = DriverFactory.getDriver().getTitle();
-	 Assert.assertEquals("Applications of Binary trees", Applications_of_Binary_trees);
+	Assert.assertEquals(treePage.PgTitleDiaplayed(), true);
+
 }
 
 @Given("The user is on the Applications of Binary trees page")
@@ -578,8 +548,8 @@ public void the_user_clicks_on_the_link_binary_search_trees_on_the_tree_page() {
 
 @Then("The user should redirect to the Binary Search Trees page")
 public void the_user_should_redirect_to_the_binary_search_trees_page() {
-	String Binary_Search_Trees = DriverFactory.getDriver().getTitle();
-	 Assert.assertEquals("Binary Search Trees", Binary_Search_Trees);
+	Assert.assertEquals(treePage.PgTitleDiaplayed(), true);
+
 }
 
 @Given("The user is on the Binary Search Trees page")
@@ -611,8 +581,8 @@ public void the_user_clicks_on_the_link_implementation_of_bst_on_the_tree_page()
 
 @Then("The user should redirect to the Implementation Of BST page")
 public void the_user_should_redirect_to_the_implementation_of_bst_page() {
-	String Implementation_Of_BST = DriverFactory.getDriver().getTitle();
-	 Assert.assertEquals("Implementation Of BST", Implementation_Of_BST);
+	Assert.assertEquals(treePage.PgTitleDiaplayed(), true);
+
 }
 
 @Given("The user is on the Implementation Of BST page")
@@ -645,14 +615,11 @@ public void the_user_clicks_on_the_link_practice_questions_on_the_tree_page() {
 
 @Then("The user should redirect to the Practice Questions page")
 public void the_user_should_redirect_to_the_practice_questions_page() {
-	String Practice_Questions = DriverFactory.getDriver().getTitle();
-	 Assert.assertEquals("Practice Questions", Practice_Questions);
+	Assert.assertEquals(treePage.PgTitleDiaplayed(), true);
+
+	
 }
 
-@Then("The user should able to view the content in Practice Questions page")
-public void the_user_should_able_to_view_the_content_in_practice_questions_page() {
-    System.out.println("No content in Practice Questions");
-}
-}
 
+}
 

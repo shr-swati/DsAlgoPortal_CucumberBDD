@@ -36,12 +36,7 @@ public class GraphSteps {
 		homePage.treeBtnClick();
 	
 	}
-	//Scenario2
-	@Given("The user is on the Home page" )
-	public void the_user_is_on_the_home_page() {
-		homePage.launchURL();
-		homePage.getStartedHomeBtnClick();
-	}
+//Scenario2
 
 	@When("The user clicks Get Started buttons of Graph on the homepage without Sign in")
 	public void the_user_clicks_get_started_buttons_of_graph_on_the_homepage_without_sign_in() {
@@ -57,10 +52,6 @@ public class GraphSteps {
 		assertEquals("You are not logged in", homeText); 
 
 	}
-
-	
-	///new
-	///
 //Scenario3
 	
 	@When("The user gets data from excel sheet {string} and {int} for the login page and clicks Graphs Get Started button")
@@ -83,7 +74,9 @@ public void the_user_should_able_to_redirect_to_the_graph_page() {
 //Scenario4
 @Given("The user is on the Graph page")
 public void the_user_is_on_the_graph_page() throws IOException {
-	the_user_is_on_the_home_page();
+	homePage.launchURL();
+	homePage.getStartedHomeBtnClick();
+	//the_user_is_on_the_home_page();
 	homePage.getStartedHomeBtnClick();
 	String sheetName = "Valid_Login"; // Define the sheet name
 	Integer rowNumber = 1; // Define the row number
@@ -97,8 +90,7 @@ public void the_user_clicks_on_the_sublink_graph_on_the_graph_page() {
 
 @Then("The user should redirect to the sublink Graph page")
 public void the_user_should_redirect_to_the_sublink_graph_page() {
-	String Graph = DriverFactory.getDriver().getTitle();
-	 Assert.assertEquals("Graph", Graph);
+	Assert.assertEquals(graphPage.PgTitleDiaplayed(), true);
 }
 //Scenario5
 @Given("The user is on the sublink Graph page")
@@ -134,8 +126,7 @@ public void the_user_clicks_on_the_link_graph_representations_on_the_graph_page(
 
 @Then("The user should redirect to the Graph Representations page")
 public void the_user_should_redirect_to_the_graph_representations_page() {
-	String Graph_Representations = DriverFactory.getDriver().getTitle();
-	 Assert.assertEquals("Graph Representations", Graph_Representations);
+	Assert.assertEquals(graphPage.PgTitleDiaplayed(), true);
 }
 
 @Given("The user is on the Graph Representations page")
