@@ -3,8 +3,6 @@ package dsAlgo_StepDefinitions;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-
-import dsAlgo_DriverFactory.DriverFactory;
 import dsAlgo_PageFactory.ArrayPage;
 import dsAlgo_PageFactory.HomePage;
 import dsAlgo_PageFactory.LoginPage;
@@ -27,7 +25,24 @@ public class ArraySteps {
 	WebDriver driver;
 	ArrayPage arrayPage = new ArrayPage();
 	
-	
+	@Given("User at ds-algo launch page")
+	public void user_at_ds_algo_launch_page() {
+		homePage.launchURL();
+	}
+
+	@When("User clicks on Get Started button")
+	public void user_clicks_on_get_started_button() {
+		homePage.getStartedHomeBtnClick();
+	}
+
+	@Then("login with {string} and {int}")
+	public void login_with_and(String sheetName, Integer rowNumber) throws IOException {
+		loginPage.clickSignIn();
+		String[] credentials = readExcel.excelDataRead(sheetName, rowNumber);
+		loginPage.userName.sendKeys(credentials[0]);
+		loginPage.passWord.sendKeys(credentials[1]);
+		loginPage.LoginBtnClick(); 
+	}
 	
 @Given("User on Home page of dsalgo portal")
 public void user_on_home_page_of_dsalgo_portal() {
@@ -164,7 +179,6 @@ public void user_navigate_to_the_try_editor_of_array_using_list() {
 public void user_enter_the_invalid_pythoncode_input_from_sheet_and_in_array_using_list_module_and_clicks_on_run_button(String sheetName, Integer rowNumber) throws IOException, InterruptedException {
 	arrayPage.readDataFromExcelSheet(sheetName, rowNumber);
 	arrayPage.textAreaSendKey();
-	//arrayPage.runButtonWithAlert();
 	arrayPage.runButtonClick();
 	
 }

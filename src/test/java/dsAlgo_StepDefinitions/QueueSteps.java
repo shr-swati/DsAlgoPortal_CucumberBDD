@@ -57,7 +57,6 @@ public class QueueSteps {
 
 	@When("user clicks Get Started Button of Queue Page")
 	public void user_clicks_get_started_button_of_queue_page() throws IOException {
-		// queuePage.clickGetStartedButton();
 		queuePage.goToQueuePage();
 	}
 
@@ -95,8 +94,7 @@ public class QueueSteps {
 		user_clicks_the_Get_Started_Button();
 		user_clicks_on_signin_link();
 		user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
-
-		queuePage = new QueuePage();
+        queuePage = new QueuePage();
 		queuePage.goToQueuePage();
 		queuePage.clickImplementationOfQueueInPython();
 		queuePage.tryHereBtn();
@@ -130,13 +128,12 @@ public class QueueSteps {
 	@Then("user should be able to get an error message on  tryEditor screen for the Implementation of Queue in Python page")
 	public void user_should_be_able_to_get_an_error_message_on_try_editor_screen_for_the_implementation_of_queue_in_python_page()
 			throws InterruptedException {
-		Thread.sleep(2000);
 		Alert alert_box = DriverFactory.getDriver().switchTo().alert();
 		LoggerReader.info("Alert message: " + alert_box.getText());
 		LoggerReader.info("Expected message: " + tryEditor.getExpectedResult());
 		Assert.assertEquals(tryEditor.getExpectedResult(), alert_box.getText());
 		alert_box.accept();
-		Thread.sleep(3000);
+		
 
 	}
 
@@ -170,7 +167,6 @@ public class QueueSteps {
 
 	@When("user clicks on Implementation using collections.deque Link")
 	public void user_clicks_on_implementation_using_collections_deque_link() throws InterruptedException, IOException {
-		Thread.sleep(2000);
 		user_is_on_the_ds_algo_home_page();
 		user_clicks_the_Get_Started_Button();
 		user_clicks_on_signin_link();
@@ -193,11 +189,9 @@ public class QueueSteps {
 		user_clicks_the_Get_Started_Button();
 		user_clicks_on_signin_link();
 		user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
-
-		queuePage = new QueuePage();
+        queuePage = new QueuePage();
 		queuePage.goToQueuePage();
 		queuePage = new QueuePage();
-		Thread.sleep(3000);
 		queuePage.clickImplementationUsingCollectionsDeque();
 		queuePage.tryHereBtn();
 	}
@@ -211,8 +205,6 @@ public class QueueSteps {
 	@Then("user should be able to get an error message on  tryEditor screen for the Implementation using collections deque page")
 	public void user_should_be_able_to_get_an_error_message_on_try_editor_screen_for_the_implementation_using_collections_deque_page()
 			throws InterruptedException {
-
-		Thread.sleep(3000);
 		Alert alert_box = DriverFactory.getDriver().switchTo().alert();
 		LoggerReader.info("Alert message: " + alert_box.getText());
 		LoggerReader.info("Expected message: " + tryEditor.getExpectedResult());
@@ -232,8 +224,7 @@ public class QueueSteps {
 		user_clicks_the_Get_Started_Button();
 		user_clicks_on_signin_link();
 		user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
-
-		queuePage = new QueuePage();
+        queuePage = new QueuePage();
 		queuePage.goToQueuePage();
 		queuePage.clickImplementationUsingArray();
 	}
@@ -250,8 +241,7 @@ public class QueueSteps {
 		user_clicks_the_Get_Started_Button();
 		user_clicks_on_signin_link();
 		user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
-
-		queuePage = new QueuePage();
+        queuePage = new QueuePage();
 		queuePage.goToQueuePage();
 		queuePage.clickImplementationUsingArray();
 		queuePage.tryHereBtn();
@@ -266,8 +256,6 @@ public class QueueSteps {
 	@Then("user should be able to get an error message on  tryEditor screen for the Implementation using array page")
 	public void user_should_be_able_to_get_an_error_message_on_try_editor_screen_for_the_implementation_using_array_page()
 			throws InterruptedException {
-		// queuePage.runButtonwithAlert();
-		Thread.sleep(3000);
 		Alert alert_box = DriverFactory.getDriver().switchTo().alert();
 		LoggerReader.info("Alert message: " + alert_box.getText());
 		LoggerReader.info("Expected message: " + tryEditor.getExpectedResult());
@@ -287,8 +275,7 @@ public class QueueSteps {
 		user_clicks_the_Get_Started_Button();
 		user_clicks_on_signin_link();
 		user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
-
-		queuePage = new QueuePage();
+        queuePage = new QueuePage();
 		queuePage.goToQueuePage();
 		queuePage.clickQueueOperations();
 	}
@@ -305,8 +292,7 @@ public class QueueSteps {
 		user_clicks_the_Get_Started_Button();
 		user_clicks_on_signin_link();
 		user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
-
-		queuePage = new QueuePage();
+        queuePage = new QueuePage();
 		queuePage.goToQueuePage();
 		queuePage.clickQueueOperations();
 		queuePage.tryHereBtn();
@@ -322,9 +308,7 @@ public class QueueSteps {
 	@Then("user should be able to get an error message on  tryEditor screen for the Queue Operations page")
 	public void user_should_be_able_to_get_an_error_message_on_try_editor_screen_for_the_queue_operations_page()
 			throws InterruptedException {
-
-		Thread.sleep(3000);
-		Alert alert_box = DriverFactory.getDriver().switchTo().alert();
+        Alert alert_box = DriverFactory.getDriver().switchTo().alert();
 		LoggerReader.info("Alert message: " + alert_box.getText());
 		LoggerReader.info("Expected message: " + tryEditor.getExpectedResult());
 		Assert.assertEquals(tryEditor.getExpectedResult(), alert_box.getText());
@@ -339,8 +323,6 @@ public class QueueSteps {
 
 	@Given("user is on Queue Operations Page")
 	public void user_is_on_Queue_Operations_Page() throws IOException, InterruptedException {
-
-		Thread.sleep(2000);
 		user_is_on_the_ds_algo_home_page();
 		user_clicks_the_Get_Started_Button();
 		user_clicks_on_signin_link();
@@ -352,16 +334,13 @@ public class QueueSteps {
 
 	@When("user  clicks on Practice Questions Link for Queue")
 	public void user_clicks_on_practice_questions_link_for_queue() throws InterruptedException {
-
-		Thread.sleep(3000);
 		queuePage.clickPracticeQuestions();
-		Thread.sleep(5000);
+		
 	}
 
 	@When("user clicks on signout button for Queue")
 	public void user_clicks_on_signout_button_for_queue() throws InterruptedException {
-		Thread.sleep(3000);
-		queuePage.clickSignOut();
-		Thread.sleep(5000);
+				queuePage.clickSignOut();
+		
 	}
 }

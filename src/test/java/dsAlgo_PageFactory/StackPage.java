@@ -107,25 +107,6 @@ public boolean OperationsinStacklinkEnabled() {
   public boolean PracticeQuestionsStackDisplayed() {
 		 return PracticeQuestionsStack.isDisplayed();
   }
- /* public void tryEditorWindow(String sheetName, int rowNumber) throws IOException, InterruptedException {
-	   String[] editor = readTryEditor.excelTryEditor(sheetName, rowNumber);
-	   Actions actions = new Actions(driver);
-	   actions.moveToElement(codeMirror).click().perform();
-	   WebElement textArea = codeMirror.findElement(By.xpath(".//textarea"));
-	   textArea.sendKeys(Keys.chord(Keys.CONTROL,"a",Keys.DELETE));
-	   textArea.sendKeys(editor[0]);
-	   runButton.click();
-	   try {
-           Alert alert = driver.switchTo().alert();
-          String get_alert_msg = alert.getText();
-           alert.accept();
-           System.out.println("Alert Is:"+ get_alert_msg);
-       } catch (NoAlertPresentException e) {
-           System.out.println("No alert present: " + e.getMessage());
-       }		
-     }
-     */
-
   
   public void tryEditorWindow(String sheetName, int rowNumber) throws IOException, InterruptedException {
 	   String[] editor = readTryEditor.excelTryEditor(sheetName, rowNumber);

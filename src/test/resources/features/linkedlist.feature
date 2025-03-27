@@ -358,7 +358,7 @@ Examples:
  Scenario Outline: Verify that the user is able to see alert window after writing numeric code for Deletion  Page
 Given user is on the tryEditor page for the Deletion Page
 When user enters numeric code from excel sheets '<Sheetname>' and <RowNumber> for the tryEditor Page and clicks on Run Button
-Then user should be able to get an error message on  tryEditor screen for the Deletions page 
+Then user should be able to get an error message on  tryEditor screen for the Deletion page 
 Examples:
 |  Sheetname   |  RowNumber |
 | TryEditor    |     8      | 
