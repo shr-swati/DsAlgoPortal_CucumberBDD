@@ -4,11 +4,10 @@ Feature: Stack
     #Given User is in the ds-algo launch page
     #When User clicks the Get Started button
 Background: The user is on the sign-in page with login credentials
-
     Given User is in the ds-algo launch page
     When User clicks the Get Started button
     Then login with "Valid_Login" and 1
-    
+
  Scenario: Verify user click on Get Started button in Stack section
  Given User is on the Home page of dsalgo portal
  When User clicks on Get Started button in Stack section

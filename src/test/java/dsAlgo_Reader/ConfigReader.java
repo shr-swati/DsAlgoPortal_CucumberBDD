@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
+import dsAlgo_DriverFactory.DriverFactory;
 
 public class ConfigReader {
 
@@ -42,7 +43,7 @@ public class ConfigReader {
 
 	public static String browserfromconfigfile() throws IOException {
 
-		prop.load(BrowserFactory.class.getClassLoader().getResourceAsStream("configuration.properties"));
+		prop.load(DriverFactory.class.getClassLoader().getResourceAsStream("configuration.properties"));
 		String browserType = prop.getProperty("browser");
 		return browserType;
 	}

@@ -1,7 +1,5 @@
 package dsAlgo_StepDefinitions;
 
-import static org.testng.Assert.assertTrue;
-
 import java.io.IOException;
 
 import org.junit.Assert;
@@ -57,8 +55,7 @@ public class LinkedListSteps {
 	public void clicks_get_started_button() throws IOException {
 
 		LinkedListPage linkedListPage = new LinkedListPage();
-
-		linkedListPage.goToLinkedListPage();
+        linkedListPage.goToLinkedListPage();
 	}
 
 	@Then("user should be redirected to Linked List Page")
@@ -71,7 +68,6 @@ public class LinkedListSteps {
 	@Given("user is on the Linked List Page")
 	public void user_is_on_the_linked_list_page() throws IOException {
 		user_is_on_the_ds_algo_home_page();
-		user_clicks_the_Get_Started_Button();
 		user_clicks_the_Get_Started_Button();
 		user_clicks_on_signin_link();
 		user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
@@ -100,8 +96,7 @@ public class LinkedListSteps {
 		user_clicks_the_Get_Started_Button();
 		user_clicks_on_signin_link();
 		user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
-
-		linkedListPage = new LinkedListPage();
+        linkedListPage = new LinkedListPage();
 		linkedListPage.goToLinkedListPage();
 		linkedListPage.clickIntroductionLink();
 		linkedListPage.tryHereBtnIntroduction();
@@ -136,7 +131,7 @@ public class LinkedListSteps {
 	@Then("user should be able to get an error message on  tryEditor screen for the Introduction page")
 	public void user_should_be_able_to_get_an_error_message_on_try_editor_screen_for_the_introduction_page()
 			throws InterruptedException {
-		Thread.sleep(3000);
+		
 		Alert alert_box = DriverFactory.getDriver().switchTo().alert();
 		LoggerReader.info("Alert message: " + alert_box.getText());
 		LoggerReader.info("Expected message: " + tryEditor.getExpectedResult());
@@ -164,9 +159,9 @@ public class LinkedListSteps {
 	
 	@When("user clicks on browser back button")
 	public void user_clicks_on_browser_back_button() throws InterruptedException {
-		Thread.sleep(5000);
+		
 		DriverFactory.getDriver().navigate().back();
-		Thread.sleep(5000);
+		
 	}
 
 	@Then("user should be able to navigate back to Introduction Page")
@@ -191,7 +186,7 @@ public class LinkedListSteps {
 
 	@Then("user should be redirected to Creating linked Page")
 	public void user_should_be_redirected_to_creating_linked_page() throws InterruptedException {
-		Thread.sleep(2000);
+		
 		String creatingLinkedListPgTitle = DriverFactory.getDriver().getTitle();
 		Assert.assertEquals("Creating Linked LIst", creatingLinkedListPgTitle);
 	}
@@ -203,8 +198,7 @@ public class LinkedListSteps {
 		user_clicks_the_Get_Started_Button();
 		user_clicks_on_signin_link();
 		user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
-
-		linkedListPage = new LinkedListPage();
+        linkedListPage = new LinkedListPage();
 		linkedListPage.goToLinkedListPage();
 		linkedListPage.clickCreatingLinkedLIst();
 		linkedListPage.tryHereBtnIntroduction();
@@ -219,7 +213,7 @@ public class LinkedListSteps {
 	@Then("user should be able to get an error message on  tryEditor screen for the Creating Linked List page")
 	public void user_should_be_able_to_get_an_error_message_on_try_editor_screen_for_the_creating_linked_list_page()
 			throws InterruptedException {
-		Thread.sleep(3000);
+		
 		Alert alert_box = DriverFactory.getDriver().switchTo().alert();
 		LoggerReader.info("Alert message: " + alert_box.getText());
 		LoggerReader.info("Expected message: " + tryEditor.getExpectedResult());
@@ -237,7 +231,7 @@ public class LinkedListSteps {
 
 	@When("user clicks on Types Of Linked List Link")
 	public void user_clicks_on_types_of_linked_list_link() throws IOException, InterruptedException {
-		Thread.sleep(2000);
+		
 		user_is_on_the_ds_algo_home_page();
 		user_clicks_the_Get_Started_Button();
 		user_clicks_on_signin_link();
@@ -245,7 +239,7 @@ public class LinkedListSteps {
 		linkedListPage = new LinkedListPage();
 		linkedListPage.goToLinkedListPage();
 		linkedListPage.clickTypesOfLinkedList();
-		Thread.sleep(5000);
+		
 	}
 
 	@Then("user should be redirected to Types Of Linked List Page")
@@ -261,8 +255,7 @@ public class LinkedListSteps {
 		user_clicks_the_Get_Started_Button();
 		user_clicks_on_signin_link();
 		user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
-
-		linkedListPage = new LinkedListPage();
+        linkedListPage = new LinkedListPage();
 		linkedListPage.goToLinkedListPage();
 		linkedListPage.clickTypesOfLinkedList();
 		linkedListPage.tryHereBtnIntroduction();
@@ -293,7 +286,7 @@ public class LinkedListSteps {
 
 	@When("user clicks on Implement Linked List in Python Link")
 	public void user_clicks_on_implement_linked_list_in_python_link() throws IOException, InterruptedException {
-		Thread.sleep(2000);
+		
 		user_is_on_the_ds_algo_home_page();
 		user_clicks_the_Get_Started_Button();
 		user_clicks_on_signin_link();
@@ -301,7 +294,7 @@ public class LinkedListSteps {
 		linkedListPage = new LinkedListPage();
 		linkedListPage.goToLinkedListPage();
 		linkedListPage.clickImplementLinkedListInPython();
-		Thread.sleep(5000);
+		
 	}
 
 	@Then("user should be redirected to Implement Linked List in Python Page")
@@ -318,8 +311,7 @@ public class LinkedListSteps {
 		user_clicks_the_Get_Started_Button();
 		user_clicks_on_signin_link();
 		user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
-
-		linkedListPage = new LinkedListPage();
+        linkedListPage = new LinkedListPage();
 		linkedListPage.goToLinkedListPage();
 		linkedListPage.clickImplementLinkedListInPython();
 		linkedListPage.tryHereBtnIntroduction();
@@ -356,8 +348,7 @@ public class LinkedListSteps {
 		user_clicks_the_Get_Started_Button();
 		user_clicks_on_signin_link();
 		user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
-
-		linkedListPage = new LinkedListPage();
+        linkedListPage = new LinkedListPage();
 		linkedListPage.goToLinkedListPage();
 		linkedListPage.clickTraversal();
 	}
@@ -375,8 +366,7 @@ public class LinkedListSteps {
 		user_clicks_the_Get_Started_Button();
 		user_clicks_on_signin_link();
 		user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
-
-		linkedListPage = new LinkedListPage();
+        linkedListPage = new LinkedListPage();
 		linkedListPage.goToLinkedListPage();
 		linkedListPage.clickTraversal();
 		linkedListPage.tryHereBtnIntroduction();
@@ -412,8 +402,7 @@ public class LinkedListSteps {
 		user_clicks_the_Get_Started_Button();
 		user_clicks_on_signin_link();
 		user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
-
-		linkedListPage = new LinkedListPage();
+        linkedListPage = new LinkedListPage();
 		linkedListPage.goToLinkedListPage();
 		linkedListPage.clickInsertion();
 	}
@@ -432,8 +421,7 @@ public class LinkedListSteps {
 		user_clicks_the_Get_Started_Button();
 		user_clicks_on_signin_link();
 		user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
-
-		linkedListPage = new LinkedListPage();
+        linkedListPage = new LinkedListPage();
 		linkedListPage.goToLinkedListPage();
 		linkedListPage.clickInsertion();
 		linkedListPage.tryHereBtnIntroduction();
@@ -470,8 +458,7 @@ public class LinkedListSteps {
 		user_clicks_the_Get_Started_Button();
 		user_clicks_on_signin_link();
 		user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
-
-		linkedListPage = new LinkedListPage();
+        linkedListPage = new LinkedListPage();
 		linkedListPage.goToLinkedListPage();
 		linkedListPage.clickDeletion();
 	}
@@ -489,8 +476,7 @@ public class LinkedListSteps {
 		user_clicks_the_Get_Started_Button();
 		user_clicks_on_signin_link();
 		user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
-
-		linkedListPage = new LinkedListPage();
+        linkedListPage = new LinkedListPage();
 		linkedListPage.goToLinkedListPage();
 		linkedListPage.clickDeletion();
 		linkedListPage.tryHereBtnIntroduction();
@@ -527,8 +513,7 @@ public class LinkedListSteps {
 		user_clicks_the_Get_Started_Button();
 		user_clicks_on_signin_link();
 		user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
-
-		linkedListPage = new LinkedListPage();
+        linkedListPage = new LinkedListPage();
 		linkedListPage.goToLinkedListPage();
 		linkedListPage.clickDeletion();
 	}
@@ -536,10 +521,9 @@ public class LinkedListSteps {
 	@When("user  clicks on Practice Questions Link")
 	public void user_clicks_on_practice_questions_link() throws IOException, InterruptedException {
 
-		Thread.sleep(3000);
+		
 		linkedListPage.clickPracticeQuestions();
-		Thread.sleep(5000);
-
+		
 	}
 
 	@Then("user should be redirected to Practice Questions Page")

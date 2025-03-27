@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="ParallelSuite" parallel="classes" thread-count="5">
+    <test name="Chrome Test">
+        <parameter name="browser" value="Chrome" />
+        <classes>
+            <class name="dsAlgo_Runner.TestRunner" />
+        </classes>
+    </test>
+</suite>

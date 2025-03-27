@@ -5,10 +5,9 @@ Feature: Array
     #When User clicks the Get Started button
 Background: The user is on the sign-in page with login credentials
 
-    Given User is in the ds-algo launch page
-    When User clicks the Get Started button
+    Given User at ds-algo launch page
+    When User clicks on Get Started button
     Then login with "Valid_Login" and 1
-
     
  Scenario: Verify user click on Get Started button in Array section
  Given User on Home page of dsalgo portal

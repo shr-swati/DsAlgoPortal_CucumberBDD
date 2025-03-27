@@ -33,8 +33,8 @@ public class ArrayPage {
 
 		PageFactory.initElements(driver, this);
 	}
-
-
+  
+     
 	@FindBy(xpath = "//h4[text()='Array']") WebElement array_displayTitle;
 	
     @FindBy(xpath="//a[@href='array']")  WebElement arrayGetStartedBtn;
@@ -79,7 +79,6 @@ public class ArrayPage {
 	
 	@FindBy(xpath = "//a[contains(text(),'Squares of')]") WebElement squareSortedArray;
 	
-       
     
 	public void clickArray() {
 		arrayGetStartedBtn.click();
@@ -230,8 +229,6 @@ public void resultOutput() {
 			WebElement textArea = codeMirror.findElement(By.xpath(".//textarea"));
 			enterCodePractice(editor[0], textArea);
 			
-			//System.out.println("Inside readExcel_forTryHereArray: editor[0] : " +editor[0]);
-			//System.out.println("Inside readExcel_forTryHereArray: editor[1] : " +editor[1]);
 			Run_btn_array.click();
 
 			try {
@@ -293,13 +290,9 @@ public void resultOutput() {
 		String[] str1 = code.split("\n");
 		System.out.println("inside enterCodePractice");
 		for (int i = 0; i < str1.length; i++) {
-			//System.out.println("inside enterCodePractice if str1[i] " +str1[i]);
-			//System.out.println("inside enterCodePractice if str1[i] " +str1[i].equalsIgnoreCase("\\b"));
 			if (str1[i].equalsIgnoreCase("\\b")) {
-				//System.out.println("inside enterCodePractice if");
 				textArea.sendKeys(Keys.BACK_SPACE);
 			} else {
-				//System.out.println("inside enterCodePractice else");
 				textArea.sendKeys(str1[i]);
 				textArea.sendKeys(Keys.RETURN);
 			}
@@ -314,89 +307,6 @@ public void resultOutput() {
 			assertTrue(logResultOutput.contains(output));
 	
 	}
-	
-	/*public void logResultOutput() {
-		
-		
-		try {
-			Alert alert = driver.switchTo().alert();
-			String get_alert_msg = alert.getText();
-			System.out.println("logResultOutput() get_alert_msg : " +get_alert_msg);
-			System.out.println("logResultOutput() output : " +output);
-			String logResultOutput = result.getText();
-			if (get_alert_msg == null || get_alert_msg.trim().isEmpty())
-			{
-				if (logResultOutput.equalsIgnoreCase(output)) {	
-			        assertTrue(logResultOutput.contains(output));
-			        System.out.println("Assertion Passed : " +logResultOutput);
-				}
-				else {
-					System.out.println("Assertion Fail : " +logResultOutput);
-				}
-			}
-			
-			else {
-					
-				if (get_alert_msg.equalsIgnoreCase(output)) {	
-				        assertTrue(get_alert_msg.contains(output));
-				        System.out.println("Assertion Passed : " +logResultOutput);
-				}
-				else {
-						System.out.println("Assertion Fail : " +logResultOutput);
-				}
-			
-			}
-			System.out.println("Alert Is:" + get_alert_msg);
-		} catch (NoAlertPresentException e) {
-			System.out.println("No alert present:");
-		} catch (UnhandledAlertException e) {
-
-			System.out.println("Unhandled alert exception: " + e.getMessage());
-		}
-	finally {
-		System.out.println("ALert handled###");
-	}
-		
-		
-	}
-	
-public void readExcel_forTryHereArray(String sheetName, int rowNumber) throws IOException, InterruptedException {
-
-		try {
-			String[] editor = tryeditor_array.excelTryEditor(sheetName, rowNumber);
-			System.out.println("Inside readExcel_forTryHereArray:");
-			output = editor[1];
-			WebElement codeMirror = driver.findElement(
-					By.xpath("//div[contains(@class, 'CodeMirror') and contains(@class, 'cm-s-default')]"));
-			Actions actions = new Actions(driver);
-			actions.moveToElement(codeMirror).click().perform();
-			WebElement textArea = codeMirror.findElement(By.xpath(".//textarea"));
-			enterCodePractice(editor[0], textArea);
-			
-			//System.out.println("Inside readExcel_forTryHereArray: editor[0] : " +editor[0]);
-			//System.out.println("Inside readExcel_forTryHereArray: editor[1] : " +editor[1]);
-			
-			SubmitBtn.click();
-			Run_btn_array.click();
-
-			try {
-				Alert alert = driver.switchTo().alert();
-				String get_alert_msg = alert.getText();
-				alert.accept();
-				System.out.println("Alert Is:" + get_alert_msg);
-			} catch (NoAlertPresentException e) {
-				System.out.println("No alert present:");
-			} catch (UnhandledAlertException e) {
-
-				System.out.println("Unhandled alert exception: " + e.getMessage());
-			}
-		} finally {
-			System.out.println("ALert handled###");
-		}
-	}
-	*/
-
-	
 	
 	
 	
