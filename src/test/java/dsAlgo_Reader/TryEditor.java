@@ -12,19 +12,13 @@ public class TryEditor {
 
 	String expectedResult;
 
-
-
 	public String getExpectedResult() {
 		return expectedResult;
 	}
 
-
-
 	public void setExpectedResult(String expectedResult) {
 		this.expectedResult = expectedResult;
 	}
-
-
 
 	public String[] excelTryEditor(String sheetName, int rowNumber) throws IOException {
 		String path = System.getProperty("user.dir") + "/src/test/resources/TestData/DsAlgo_TestData.xlsx";
@@ -35,7 +29,8 @@ public class TryEditor {
 		XSSFSheet sheet = workbook.getSheet(sheetName);
 
 		Row row = sheet.getRow(rowNumber);
-		System.out.println("Inside readExcel_forTryHereArray: row.getCell(1).getStringCellValue() " +row.getCell(1).getStringCellValue());
+		System.out.println("Inside readExcel_forTryHereArray: row.getCell(1).getStringCellValue() "
+				+ row.getCell(1).getStringCellValue());
 		String pythoncode = row.getCell(0).getStringCellValue();
 		String output = row.getCell(1).getStringCellValue();
 

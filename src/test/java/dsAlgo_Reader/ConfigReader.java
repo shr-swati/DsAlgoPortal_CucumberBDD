@@ -9,9 +9,8 @@ import dsAlgo_DriverFactory.DriverFactory;
 
 public class ConfigReader {
 
-	private static Properties prop = new Properties();
-	private String username;
-	private String password;
+    private static Properties prop = new Properties();
+
 
 	private static Properties properties;
 	private final static String propertyFilePath = "src/test/resources/Config/config.properties";
@@ -43,7 +42,7 @@ public class ConfigReader {
 
 	public static String browserfromconfigfile() throws IOException {
 
-		prop.load(DriverFactory.class.getClassLoader().getResourceAsStream("configuration.properties"));
+		prop.load(DriverFactory.class.getClassLoader().getResourceAsStream("config.properties"));
 		String browserType = prop.getProperty("browser");
 		return browserType;
 	}
@@ -57,15 +56,15 @@ public class ConfigReader {
 		}
 	}
 
-	public String getusername() throws IOException {
+	/*public String getusername() throws IOException {
 		prop.load(ConfigReader.class.getClassLoader().getResourceAsStream("configuration.properties"));
 		username = prop.getProperty("username");
 		return username;
-	}
+	}*?
 
-	public String getpassword() throws IOException {
+	/*public String getpassword() throws IOException {
 		prop.load(ConfigReader.class.getClassLoader().getResourceAsStream("configuration.properties"));
 		password = prop.getProperty("password");
 		return password;
-	}
+	}*/
 }

@@ -55,7 +55,7 @@ public class LinkedListSteps {
 	public void clicks_get_started_button() throws IOException {
 
 		LinkedListPage linkedListPage = new LinkedListPage();
-        linkedListPage.goToLinkedListPage();
+		linkedListPage.goToLinkedListPage();
 	}
 
 	@Then("user should be redirected to Linked List Page")
@@ -63,7 +63,6 @@ public class LinkedListSteps {
 		String linkedlistPgTitle = DriverFactory.getDriver().getTitle();
 		Assert.assertEquals("Linked List", linkedlistPgTitle);
 	}
-
 
 	@Given("user is on the Linked List Page")
 	public void user_is_on_the_linked_list_page() throws IOException {
@@ -89,14 +88,13 @@ public class LinkedListSteps {
 
 	}
 
-
 	@Given("user is on the tryEditor page for the Introduction page")
 	public void user_is_on_the_try_editor_page_for_the_introduction_page() throws IOException {
 		user_is_on_the_ds_algo_home_page();
 		user_clicks_the_Get_Started_Button();
 		user_clicks_on_signin_link();
 		user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
-        linkedListPage = new LinkedListPage();
+		linkedListPage = new LinkedListPage();
 		linkedListPage.goToLinkedListPage();
 		linkedListPage.clickIntroductionLink();
 		linkedListPage.tryHereBtnIntroduction();
@@ -118,7 +116,6 @@ public class LinkedListSteps {
 		Assert.assertEquals(tryEditor.getExpectedResult(), linkedListPage.resultOutput());
 	}
 
-
 	@When("user enters invalid and incorrect syntax code from excel sheets {string} and {int} for the tryEditor Page and clicks on Run Button")
 	public void user_enters_invalid_and_incorrect_syntax_code_from_excel_sheets_and_for_the_try_editor_page_and_clicks_on_run_button(
 			String sheetName, Integer rowNumber) throws IOException {
@@ -131,7 +128,7 @@ public class LinkedListSteps {
 	@Then("user should be able to get an error message on  tryEditor screen for the Introduction page")
 	public void user_should_be_able_to_get_an_error_message_on_try_editor_screen_for_the_introduction_page()
 			throws InterruptedException {
-		
+
 		Alert alert_box = DriverFactory.getDriver().switchTo().alert();
 		LoggerReader.info("Alert message: " + alert_box.getText());
 		LoggerReader.info("Expected message: " + tryEditor.getExpectedResult());
@@ -139,8 +136,10 @@ public class LinkedListSteps {
 		alert_box.accept();
 
 	}
+
 	@When("user enters blank code from excel sheets {string} and {int} for the tryEditor Page and clicks on Run Button")
-	public void user_enters_blank_code_from_excel_sheets_and_for_the_try_editor_page_and_clicks_on_run_button(String sheetName, Integer rowNumber) throws IOException {
+	public void user_enters_blank_code_from_excel_sheets_and_for_the_try_editor_page_and_clicks_on_run_button(
+			String sheetName, Integer rowNumber) throws IOException {
 		String[] values = readExcel.excelDataRead(sheetName, rowNumber);
 		linkedListPage.textAreaSendKey(values[0]);
 		tryEditor.setExpectedResult(values[1]);
@@ -148,27 +147,26 @@ public class LinkedListSteps {
 	}
 
 	@When("user enters numeric code from excel sheets {string} and {int} for the tryEditor Page and clicks on Run Button")
-	public void user_enters_numeric_code_from_excel_sheets_and_for_the_try_editor_page_and_clicks_on_run_button(String sheetName, Integer rowNumber) throws IOException {
+	public void user_enters_numeric_code_from_excel_sheets_and_for_the_try_editor_page_and_clicks_on_run_button(
+			String sheetName, Integer rowNumber) throws IOException {
 		String[] values = readExcel.excelDataRead(sheetName, rowNumber);
 		linkedListPage.textAreaSendKey(values[0]);
 		tryEditor.setExpectedResult(values[1]);
 		linkedListPage.runButtonClick();
 	}
 
-
-	
 	@When("user clicks on browser back button")
 	public void user_clicks_on_browser_back_button() throws InterruptedException {
-		
+
 		DriverFactory.getDriver().navigate().back();
-		
+
 	}
 
 	@Then("user should be able to navigate back to Introduction Page")
 	public void user_should_be_able_to_navigate_back_to_introduction_page() {
 		String introductionPgTitle = DriverFactory.getDriver().getTitle();
 		Assert.assertEquals("Introduction", introductionPgTitle);
-	    
+
 	}
 
 	@When("user clicks on Creating Linked List Link")
@@ -186,19 +184,18 @@ public class LinkedListSteps {
 
 	@Then("user should be redirected to Creating linked Page")
 	public void user_should_be_redirected_to_creating_linked_page() throws InterruptedException {
-		
+
 		String creatingLinkedListPgTitle = DriverFactory.getDriver().getTitle();
 		Assert.assertEquals("Creating Linked LIst", creatingLinkedListPgTitle);
 	}
 
-	
 	@Given("user is on the tryEditor page for the Creating Linked List")
 	public void user_is_on_the_try_editor_page_for_the_creating_linked_list() throws IOException {
 		user_is_on_the_ds_algo_home_page();
 		user_clicks_the_Get_Started_Button();
 		user_clicks_on_signin_link();
 		user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
-        linkedListPage = new LinkedListPage();
+		linkedListPage = new LinkedListPage();
 		linkedListPage.goToLinkedListPage();
 		linkedListPage.clickCreatingLinkedLIst();
 		linkedListPage.tryHereBtnIntroduction();
@@ -209,11 +206,10 @@ public class LinkedListSteps {
 		Assert.assertEquals(tryEditor.getExpectedResult(), linkedListPage.resultOutput());
 	}
 
-	
 	@Then("user should be able to get an error message on  tryEditor screen for the Creating Linked List page")
 	public void user_should_be_able_to_get_an_error_message_on_try_editor_screen_for_the_creating_linked_list_page()
 			throws InterruptedException {
-		
+
 		Alert alert_box = DriverFactory.getDriver().switchTo().alert();
 		LoggerReader.info("Alert message: " + alert_box.getText());
 		LoggerReader.info("Expected message: " + tryEditor.getExpectedResult());
@@ -222,7 +218,6 @@ public class LinkedListSteps {
 
 	}
 
-	
 	@Then("user should be able to navigate back to Creating Linked List Page")
 	public void user_should_be_able_to_navigate_back_to_creating_linked_list_page() {
 		String creatingLinkedListPgTitle = DriverFactory.getDriver().getTitle();
@@ -231,7 +226,7 @@ public class LinkedListSteps {
 
 	@When("user clicks on Types Of Linked List Link")
 	public void user_clicks_on_types_of_linked_list_link() throws IOException, InterruptedException {
-		
+
 		user_is_on_the_ds_algo_home_page();
 		user_clicks_the_Get_Started_Button();
 		user_clicks_on_signin_link();
@@ -239,7 +234,7 @@ public class LinkedListSteps {
 		linkedListPage = new LinkedListPage();
 		linkedListPage.goToLinkedListPage();
 		linkedListPage.clickTypesOfLinkedList();
-		
+
 	}
 
 	@Then("user should be redirected to Types Of Linked List Page")
@@ -248,14 +243,13 @@ public class LinkedListSteps {
 		Assert.assertEquals("Types of Linked List", typesOfLinkedListPgTitle);
 	}
 
-
 	@Given("user is on the tryEditor page for the Types Of Linked List page")
 	public void user_is_on_the_try_editor_page_for_the_types_of_linked_list_page() throws IOException {
 		user_is_on_the_ds_algo_home_page();
 		user_clicks_the_Get_Started_Button();
 		user_clicks_on_signin_link();
 		user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
-        linkedListPage = new LinkedListPage();
+		linkedListPage = new LinkedListPage();
 		linkedListPage.goToLinkedListPage();
 		linkedListPage.clickTypesOfLinkedList();
 		linkedListPage.tryHereBtnIntroduction();
@@ -265,7 +259,6 @@ public class LinkedListSteps {
 	public void user_should_be_able_to_get_an_output_in_the_try_editor_screen_for_the_types_of_linked_list_page() {
 		Assert.assertEquals(tryEditor.getExpectedResult(), linkedListPage.resultOutput());
 	}
-
 
 	@Then("user should be able to get an error message on  tryEditor screen for the Types Of Linked List page")
 	public void user_should_be_able_to_get_an_error_message_on_try_editor_screen_for_the_types_of_linked_list_page() {
@@ -277,7 +270,6 @@ public class LinkedListSteps {
 
 	}
 
-
 	@Then("user should be able to navigate back to Types Of Linked List page")
 	public void user_should_be_able_to_navigate_back_to_types_of_linked_list_page() {
 		String typesOfLinkedListPgTitle = DriverFactory.getDriver().getTitle();
@@ -286,7 +278,7 @@ public class LinkedListSteps {
 
 	@When("user clicks on Implement Linked List in Python Link")
 	public void user_clicks_on_implement_linked_list_in_python_link() throws IOException, InterruptedException {
-		
+
 		user_is_on_the_ds_algo_home_page();
 		user_clicks_the_Get_Started_Button();
 		user_clicks_on_signin_link();
@@ -294,7 +286,7 @@ public class LinkedListSteps {
 		linkedListPage = new LinkedListPage();
 		linkedListPage.goToLinkedListPage();
 		linkedListPage.clickImplementLinkedListInPython();
-		
+
 	}
 
 	@Then("user should be redirected to Implement Linked List in Python Page")
@@ -304,14 +296,13 @@ public class LinkedListSteps {
 
 	}
 
-
 	@Given("user is on the tryEditor page for the Implement Linked List in Python Page")
 	public void user_is_on_the_try_editor_page_for_the_implement_linked_list_in_python_page() throws IOException {
 		user_is_on_the_ds_algo_home_page();
 		user_clicks_the_Get_Started_Button();
 		user_clicks_on_signin_link();
 		user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
-        linkedListPage = new LinkedListPage();
+		linkedListPage = new LinkedListPage();
 		linkedListPage.goToLinkedListPage();
 		linkedListPage.clickImplementLinkedListInPython();
 		linkedListPage.tryHereBtnIntroduction();
@@ -322,7 +313,6 @@ public class LinkedListSteps {
 		Assert.assertEquals(tryEditor.getExpectedResult(), linkedListPage.resultOutput());
 	}
 
-
 	@Then("user should be able to get an error message on  tryEditor screen for the Implement Linked List in Python page")
 	public void user_should_be_able_to_get_an_error_message_on_try_editor_screen_for_the_implement_linked_list_in_python_page() {
 		Alert alert_box = DriverFactory.getDriver().switchTo().alert();
@@ -332,7 +322,6 @@ public class LinkedListSteps {
 		alert_box.accept();
 
 	}
-
 
 	@Then("user should be able to navigate back to Implement Linked List in Python Page")
 	public void user_should_be_able_to_navigate_back_to_implement_linked_list_in_python_page() {
@@ -348,7 +337,7 @@ public class LinkedListSteps {
 		user_clicks_the_Get_Started_Button();
 		user_clicks_on_signin_link();
 		user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
-        linkedListPage = new LinkedListPage();
+		linkedListPage = new LinkedListPage();
 		linkedListPage.goToLinkedListPage();
 		linkedListPage.clickTraversal();
 	}
@@ -359,14 +348,13 @@ public class LinkedListSteps {
 		Assert.assertEquals("Traversal", traversalPage);
 	}
 
-
 	@Given("user is on the tryEditor page for the Traversal Page")
 	public void user_is_on_the_try_editor_page_for_the_traversal_page() throws IOException {
 		user_is_on_the_ds_algo_home_page();
 		user_clicks_the_Get_Started_Button();
 		user_clicks_on_signin_link();
 		user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
-        linkedListPage = new LinkedListPage();
+		linkedListPage = new LinkedListPage();
 		linkedListPage.goToLinkedListPage();
 		linkedListPage.clickTraversal();
 		linkedListPage.tryHereBtnIntroduction();
@@ -377,7 +365,6 @@ public class LinkedListSteps {
 		Assert.assertEquals(tryEditor.getExpectedResult(), linkedListPage.resultOutput());
 	}
 
-
 	@Then("user should be able to get an error message on  tryEditor screen for the Traversal page")
 	public void user_should_be_able_to_get_an_error_message_on_try_editor_screen_for_the_traversal_page() {
 		Alert alert_box = DriverFactory.getDriver().switchTo().alert();
@@ -387,7 +374,6 @@ public class LinkedListSteps {
 		alert_box.accept();
 
 	}
-
 
 	@Then("user should be able to navigate back to Traversal Page")
 	public void user_should_be_able_to_navigate_back_to_traversal_page() {
@@ -402,7 +388,7 @@ public class LinkedListSteps {
 		user_clicks_the_Get_Started_Button();
 		user_clicks_on_signin_link();
 		user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
-        linkedListPage = new LinkedListPage();
+		linkedListPage = new LinkedListPage();
 		linkedListPage.goToLinkedListPage();
 		linkedListPage.clickInsertion();
 	}
@@ -414,14 +400,13 @@ public class LinkedListSteps {
 
 	}
 
-
 	@Given("user is on the tryEditor page for the Insertion Page")
 	public void user_is_on_the_try_editor_page_for_the_insertion_page() throws IOException {
 		user_is_on_the_ds_algo_home_page();
 		user_clicks_the_Get_Started_Button();
 		user_clicks_on_signin_link();
 		user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
-        linkedListPage = new LinkedListPage();
+		linkedListPage = new LinkedListPage();
 		linkedListPage.goToLinkedListPage();
 		linkedListPage.clickInsertion();
 		linkedListPage.tryHereBtnIntroduction();
@@ -431,7 +416,6 @@ public class LinkedListSteps {
 	public void user_should_be_able_to_get_an_output_in_the_try_editor_screen_for_the_insertion_page() {
 		Assert.assertEquals(tryEditor.getExpectedResult(), linkedListPage.resultOutput());
 	}
-
 
 	@Then("user should be able to get an error message on  tryEditor screen for the Insertion page")
 	public void user_should_be_able_to_get_an_error_message_on_try_editor_screen_for_the_insertion_page() {
@@ -443,7 +427,6 @@ public class LinkedListSteps {
 
 	}
 
-
 	@Then("user should be able to navigate back to Insertion Page")
 	public void user_should_be_able_to_navigate_back_to_insertion_page() {
 		String insertionPage = DriverFactory.getDriver().getTitle();
@@ -451,14 +434,13 @@ public class LinkedListSteps {
 
 	}
 
-
 	@When("user clicks on Deletion Link")
 	public void user_clicks_on_deletion_link() throws IOException {
 		user_is_on_the_ds_algo_home_page();
 		user_clicks_the_Get_Started_Button();
 		user_clicks_on_signin_link();
 		user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
-        linkedListPage = new LinkedListPage();
+		linkedListPage = new LinkedListPage();
 		linkedListPage.goToLinkedListPage();
 		linkedListPage.clickDeletion();
 	}
@@ -469,14 +451,13 @@ public class LinkedListSteps {
 		Assert.assertEquals("Deletion", deletionPage);
 	}
 
-
 	@Given("user is on the tryEditor page for the Deletion Page")
 	public void user_is_on_the_try_editor_page_for_the_deletion_page() throws IOException {
 		user_is_on_the_ds_algo_home_page();
 		user_clicks_the_Get_Started_Button();
 		user_clicks_on_signin_link();
 		user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
-        linkedListPage = new LinkedListPage();
+		linkedListPage = new LinkedListPage();
 		linkedListPage.goToLinkedListPage();
 		linkedListPage.clickDeletion();
 		linkedListPage.tryHereBtnIntroduction();
@@ -488,7 +469,6 @@ public class LinkedListSteps {
 		Assert.assertEquals(tryEditor.getExpectedResult(), linkedListPage.resultOutput());
 	}
 
-
 	@Then("user should be able to get an error message on  tryEditor screen for the Deletion page")
 	public void user_should_be_able_to_get_an_error_message_on_try_editor_screen_for_the_deletion_page() {
 
@@ -499,7 +479,6 @@ public class LinkedListSteps {
 		alert_box.accept();
 
 	}
-
 
 	@Then("user should be able to navigate back to Deletion Page")
 	public void user_should_be_able_to_navigate_back_to_deletion_page() {
@@ -513,7 +492,7 @@ public class LinkedListSteps {
 		user_clicks_the_Get_Started_Button();
 		user_clicks_on_signin_link();
 		user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
-        linkedListPage = new LinkedListPage();
+		linkedListPage = new LinkedListPage();
 		linkedListPage.goToLinkedListPage();
 		linkedListPage.clickDeletion();
 	}
@@ -521,9 +500,8 @@ public class LinkedListSteps {
 	@When("user  clicks on Practice Questions Link")
 	public void user_clicks_on_practice_questions_link() throws IOException, InterruptedException {
 
-		
 		linkedListPage.clickPracticeQuestions();
-		
+
 	}
 
 	@Then("user should be redirected to Practice Questions Page")

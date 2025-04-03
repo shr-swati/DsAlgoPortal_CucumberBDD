@@ -94,7 +94,7 @@ public class QueueSteps {
 		user_clicks_the_Get_Started_Button();
 		user_clicks_on_signin_link();
 		user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
-        queuePage = new QueuePage();
+		queuePage = new QueuePage();
 		queuePage.goToQueuePage();
 		queuePage.clickImplementationOfQueueInPython();
 		queuePage.tryHereBtn();
@@ -133,7 +133,6 @@ public class QueueSteps {
 		LoggerReader.info("Expected message: " + tryEditor.getExpectedResult());
 		Assert.assertEquals(tryEditor.getExpectedResult(), alert_box.getText());
 		alert_box.accept();
-		
 
 	}
 
@@ -189,7 +188,7 @@ public class QueueSteps {
 		user_clicks_the_Get_Started_Button();
 		user_clicks_on_signin_link();
 		user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
-        queuePage = new QueuePage();
+		queuePage = new QueuePage();
 		queuePage.goToQueuePage();
 		queuePage = new QueuePage();
 		queuePage.clickImplementationUsingCollectionsDeque();
@@ -224,7 +223,7 @@ public class QueueSteps {
 		user_clicks_the_Get_Started_Button();
 		user_clicks_on_signin_link();
 		user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
-        queuePage = new QueuePage();
+		queuePage = new QueuePage();
 		queuePage.goToQueuePage();
 		queuePage.clickImplementationUsingArray();
 	}
@@ -241,7 +240,7 @@ public class QueueSteps {
 		user_clicks_the_Get_Started_Button();
 		user_clicks_on_signin_link();
 		user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
-        queuePage = new QueuePage();
+		queuePage = new QueuePage();
 		queuePage.goToQueuePage();
 		queuePage.clickImplementationUsingArray();
 		queuePage.tryHereBtn();
@@ -275,7 +274,7 @@ public class QueueSteps {
 		user_clicks_the_Get_Started_Button();
 		user_clicks_on_signin_link();
 		user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
-        queuePage = new QueuePage();
+		queuePage = new QueuePage();
 		queuePage.goToQueuePage();
 		queuePage.clickQueueOperations();
 	}
@@ -292,7 +291,7 @@ public class QueueSteps {
 		user_clicks_the_Get_Started_Button();
 		user_clicks_on_signin_link();
 		user_gets_data_from_excel_sheet_and_for_login_page("Valid_Login", 1);
-        queuePage = new QueuePage();
+		queuePage = new QueuePage();
 		queuePage.goToQueuePage();
 		queuePage.clickQueueOperations();
 		queuePage.tryHereBtn();
@@ -308,7 +307,7 @@ public class QueueSteps {
 	@Then("user should be able to get an error message on  tryEditor screen for the Queue Operations page")
 	public void user_should_be_able_to_get_an_error_message_on_try_editor_screen_for_the_queue_operations_page()
 			throws InterruptedException {
-        Alert alert_box = DriverFactory.getDriver().switchTo().alert();
+		Alert alert_box = DriverFactory.getDriver().switchTo().alert();
 		LoggerReader.info("Alert message: " + alert_box.getText());
 		LoggerReader.info("Expected message: " + tryEditor.getExpectedResult());
 		Assert.assertEquals(tryEditor.getExpectedResult(), alert_box.getText());
@@ -335,12 +334,12 @@ public class QueueSteps {
 	@When("user  clicks on Practice Questions Link for Queue")
 	public void user_clicks_on_practice_questions_link_for_queue() throws InterruptedException {
 		queuePage.clickPracticeQuestions();
-		
+
 	}
 
 	@When("user clicks on signout button for Queue")
 	public void user_clicks_on_signout_button_for_queue() throws InterruptedException {
-				queuePage.clickSignOut();
-		
+		queuePage.clickSignOut();
+
 	}
 }

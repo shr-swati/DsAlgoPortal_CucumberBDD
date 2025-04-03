@@ -1,7 +1,14 @@
 package dsAlgo_TestRunner;
 
-import org.testng.annotations.DataProvider;
+import java.io.IOException;
 
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
+
+//import dsAlgo_DriverFactory.DriverFactory;
+import dsAlgo_Reader.ConfigReader;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
@@ -13,12 +20,18 @@ import io.cucumber.testng.CucumberOptions;
 						"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
 						 })
 
-public class TestRunner extends AbstractTestNGCucumberTests {
+public class TestRunnerCrossBrowser extends AbstractTestNGCucumberTests {
+	@BeforeTest
+	@Parameters({ "browser" })
+	public void defineBrowser(@Optional("chrome") String browser) throws IOException {
+		ConfigReader.browserfromconfigfile();
+	}
 
 	@Override
-	@DataProvider(parallel = false)
+	@DataProvider(parallel = true)
 	public Object[][] scenarios() {
 
 		return super.scenarios();
 	}
+
 }

@@ -16,16 +16,11 @@ import dsAlgo_Reader.LoggerReader;
 
 public class DataStructuresPage {
 
-	WebDriver driver= DriverFactory.getDriver();
-	ConfigReader configFileReader=DriverFactory.configReader();
-	
-	
-	
+	WebDriver driver = DriverFactory.getDriver();
+	ConfigReader configFileReader = DriverFactory.configReader();
+
 	String pagetitle;
 	protected boolean practicequestioncontent;
-	
-	
-	
 
 	@FindBy(linkText = "Sign in")
 	WebElement signin;
@@ -37,17 +32,12 @@ public class DataStructuresPage {
 	WebElement Login;
 	@FindBy(linkText = "Get Started")
 	public WebElement dsGetstarted;
-	
-	
-	
-	
+
 	@FindBy(xpath = "/html/body/div[2]/h4")
 	public WebElement firstds_dsGetstarted;
-	
+
 	@FindBy(xpath = "//a[@href='data-structures-introduction']")
 	public WebElement ds_dsGetstarted;
-	
-	
 
 	@FindBy(xpath = "//h4[normalize-space()='Data Structures-Introduction']")
 	WebElement pageTitle;
@@ -66,19 +56,17 @@ public class DataStructuresPage {
 	@FindBy(xpath = "//pre[@id='output']")
 	WebElement consoleoutput;
 
-	/*public String homepage(String uname, String Password) {
+	/*
+	 * public String homepage(String uname, String Password) {
+	 * PageFactory.initElements(driver, this); signin.click();
+	 * username.sendKeys(uname); password.sendKeys(Password); Login.click();
+	 * pagetitle = driver.getTitle(); return pagetitle; }
+	 */
+	public DataStructuresPage() {
 		PageFactory.initElements(driver, this);
-		signin.click();
-		username.sendKeys(uname);
-		password.sendKeys(Password);
-		Login.click();
-		pagetitle = driver.getTitle();
-		return pagetitle;
-	}*/
-	 public DataStructuresPage() {
-		  PageFactory.initElements(driver, this);
-	        
-	    }
+
+	}
+
 	public String dspage() {
 
 		dsGetstarted.click();
@@ -93,27 +81,28 @@ public class DataStructuresPage {
 //		return currentpagetitle;
 //	}
 //	
-	
-	 @FindBy(xpath="/html/body/div[2]/div/div[2]/strong/p")
-	  @CacheLookup
-	  WebElement pgTitle;
-	 public boolean PgTitleDiaplayed() {
-			return pgTitle.isDisplayed();
-	  }
-	 
-	 public boolean DSPgTitleDiaplayed() {
-			return firstds_dsGetstarted.isDisplayed();
-	 }
-	 public boolean Run_btnDisplayed() {
-			return runbutton.isDisplayed();
-	 }
+
+	@FindBy(xpath = "/html/body/div[2]/div/div[2]/strong/p")
+	@CacheLookup
+	WebElement pgTitle;
+
+	public boolean PgTitleDiaplayed() {
+		return pgTitle.isDisplayed();
+	}
+
+	public boolean DSPgTitleDiaplayed() {
+		return firstds_dsGetstarted.isDisplayed();
+	}
+
+	public boolean Run_btnDisplayed() {
+		return runbutton.isDisplayed();
+	}
+
 	public String getCurrentUrl() {
 
 		String currentUrl = driver.getCurrentUrl();
 		return currentUrl;
 	}
-	
-
 
 	public String clickTimeComplexityLink() {
 
@@ -121,15 +110,14 @@ public class DataStructuresPage {
 		pagetitle = driver.getTitle();
 		return pagetitle;
 	}
-	
+
 	public void clearCodeArea() {
 		codetextarea.clear();
 	}
-	
-	 public String getCodeAreaContent() {
-	        return codetextarea.getText(); 
-	    }
 
+	public String getCodeAreaContent() {
+		return codetextarea.getText();
+	}
 
 	public void PracticeQuestionClick() {
 		PracticeQuestion.click();
@@ -156,35 +144,36 @@ public class DataStructuresPage {
 		actions.sendKeys(code).perform();
 	}
 
-
 	public String handlealert() {
-	    try {
-	        // Switch to the alert
-	        Alert alert = driver.switchTo().alert();
+		try {
+			// Switch to the alert
+			Alert alert = driver.switchTo().alert();
 
-	        // Get the alert message
-	        String alertMessage = alert.getText();
+			// Get the alert message
+			String alertMessage = alert.getText();
 
-	        // Log the alert message
-	        LoggerReader.info("Alert message displayed: " + alertMessage);
+			// Log the alert message
+			LoggerReader.info("Alert message displayed: " + alertMessage);
 
-	        // Assert that the alert message is not null or empty
-	        Assert.assertNotNull(alertMessage, "The alert message is null. No alert is displayed.");
-	        Assert.assertFalse(alertMessage.isEmpty(), "The alert message is empty. No meaningful message is displayed.");
+			// Assert that the alert message is not null or empty
+			Assert.assertNotNull(alertMessage, "The alert message is null. No alert is displayed.");
+			Assert.assertFalse(alertMessage.isEmpty(),
+					"The alert message is empty. No meaningful message is displayed.");
 
-	        // Accept the alert
-	        alert.accept();
+			// Accept the alert
+			alert.accept();
 
-	        // Return the alert message
-	        return alertMessage;
-	    } catch (NoAlertPresentException e) {
-	        // Log an error if no alert is present
-	        LoggerReader.error("No alert was displayed.");
-	        Assert.fail("No alert was displayed.");
-	    }
+			// Return the alert message
+			return alertMessage;
+		} catch (NoAlertPresentException e) {
+			// Log an error if no alert is present
+			LoggerReader.error("No alert was displayed.");
+			Assert.fail("No alert was displayed.");
+		}
 
-	    // Default return in case of an exception (though the method will fail before reaching here)
-	    return null;
+		// Default return in case of an exception (though the method will fail before
+		// reaching here)
+		return null;
 	}
 
 	public String getoutput() {

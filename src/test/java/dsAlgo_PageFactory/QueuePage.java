@@ -1,8 +1,5 @@
 package dsAlgo_PageFactory;
 
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.UnhandledAlertException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -57,8 +54,6 @@ public class QueuePage {
 		PageFactory.initElements(driver, this);
 
 	}
-	
-	
 
 	public void clickGetStartedButton() {
 		getStartedButton.click();
@@ -116,11 +111,4 @@ public class QueuePage {
 		signOut.click();
 	}
 
-	
-		
-	}
-
-		
-
-	
-
+}

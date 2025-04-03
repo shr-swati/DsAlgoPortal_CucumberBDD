@@ -13,12 +13,11 @@ import dsAlgo_Reader.LoggerReader;
 
 public class DriverFactory {
 
-	
 	public static WebDriver driver;
-	public static  ConfigReader configFileReader = new ConfigReader();
-	private static ThreadLocal<WebDriver> tldriver = new ThreadLocal<>() ;
-	
-	@Parameters("browser") 
+	public static ConfigReader configFileReader = new ConfigReader();
+	private static ThreadLocal<WebDriver> tldriver = new ThreadLocal<>();
+
+	@Parameters("browser")
 	public static WebDriver initDriver(String browser) {
 		if (browser.equalsIgnoreCase("firefox")) {
 			LoggerReader.info("Testing on firefox");
@@ -35,19 +34,41 @@ public class DriverFactory {
 		getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		return getDriver();
 	}
-	
+
 	public static WebDriver getDriver() {
+		if (tldriver.get() == null) {
+			throw new IllegalStateException("WebDriver is not initialized. Call initDriver() first.");
+		}
 		return tldriver.get();
 	}
-	
+
 	public static void quitDriver() throws Throwable {
 		if (tldriver.get() != null) {
 			tldriver.get().quit();
 			tldriver.remove();
 		}
 	}
-	
+
 	public static ConfigReader configReader() {
 		return configFileReader;
 	}
+
+	/*public static void setBrowserType(String browser) {
+		try {
+			LoggerReader.info("Setting browser type to: " + browser);
+			switch (browser.toLowerCase()) {
+			case "chrome":
+			case "firefox":
+			case "edge":
+				initDriver(browser);
+				break;
+			default:
+				throw new IllegalArgumentException("Unsupported browser: " + browser);
+			}
+		} catch (Exception e) {
+			LoggerReader.error("Failed to initialize browser: " + e.getMessage());
+			throw new RuntimeException("Error initializing browser: " + browser, e);
+		}
+	}*/
+
 }
